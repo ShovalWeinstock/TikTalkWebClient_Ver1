@@ -1,5 +1,6 @@
 import './LoginAndRegister.css';
-import UserIteml from './userItem/UserItem';
+import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
+import Registration from './Registration';
 
 function Login() {
   return (
@@ -16,7 +17,14 @@ function Login() {
             </div>
             <button type="Login" class="btn btn-primary" onclick="validateLogin()">Submit</button>
             <span id="notRegistered" class="form-text"> Not registered?</span>
-            <span> <a href="#" class="form-text"> Click here</a> </span>
+            <span> 
+                <BrowserRouter> 
+                    <Routes>
+                        <Route path="/register" element={ <Registration /> }></Route>
+                    </Routes>
+                    <Link to="/register" class="form-text"> Click here</Link> 
+                </BrowserRouter> 
+            </span>
             <span class="form-text"> to regiser</span>
             <p id="invalidInfo"></p>
         </form>
