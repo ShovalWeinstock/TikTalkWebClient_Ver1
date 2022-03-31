@@ -6,13 +6,17 @@ html, body {
     height: 100%;
 }
 
-body, div, h1, form, input, p { 
+body, div, h1, form, input, p{ 
     padding: 0;
     margin: 0;
     outline: none;
     font-family: Roboto, Arial, sans-serif;
     font-size: 16px;
-    color: #666; 
+    /* color: #666;  */
+    /* color: #3a4946; */
+}
+.form-text{
+    color: #3a4946
 }
 
 .main-block {
@@ -41,7 +45,11 @@ form {
         margin: 0 30px;
 }
 
-/* .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-    background-color: #7DA1BF !important;
-    border-color: #7DA1BF !important;
-} */
+.btn-primary, .btn-primary:active, .btn-primary:visited{
+    background-color: #445551 !important;
+    border-color: #445551 !important;
+}
+.btn-primary:hover {
+    background-color: #3a4946 !important;
+    border-color: #3a4946 !important;
+}

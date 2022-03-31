@@ -19,14 +19,11 @@ function Login() {
             <span id="notRegistered" class="form-text"> Not registered?</span>
             <span> 
                 <BrowserRouter> 
-                    <Routes>
-                        <Route path="/register" element={ <Registration /> }></Route>
-                    </Routes>
+                    <Routes> <Route path="/register" element={ <Registration /> }></Route> </Routes>
                     <Link to="/register" class="form-text"> Click here</Link> 
                 </BrowserRouter> 
             </span>
             <span class="form-text"> to regiser</span>
-            <p id="invalidInfo"></p>
         </form>
   </div>
   );
