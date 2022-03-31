@@ -1,32 +1,48 @@
 import './LoginAndRegister.css';
-import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Registration from './Registration';
+import { useState } from 'react';
+
 
 function Login() {
-  return (
-    <div class="main-block">
-        <h1>Login</h1>
-        <form>
-            <div class="mb-3">
-                <label for="InputUsername" class="form-label">Username</label>
-                <input type="username" class="form-control" id="InputUsername" aria-describedby="usernameHelp"></input>
-            </div>
-            <div class="mb-3">
-                <label for="inputPassword" class="form-label">Password</label>
-                <input type="password" id="inputPassword" class="form-control" aria-describedby="passwordHelpBlock"></input>
-            </div>
-            <button type="Login" class="btn btn-primary" onclick="validateLogin()">Submit</button>
-            <span id="notRegistered" class="form-text"> Not registered?</span>
-            <span> 
-                <BrowserRouter> 
-                    <Routes> <Route path="/register" element={ <Registration /> }></Route> </Routes>
-                    <Link to="/register" class="form-text"> Click here</Link> 
-                </BrowserRouter> 
-            </span>
-            <span class="form-text"> to regiser</span>
-        </form>
-  </div>
-  );
+
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    // goal: submit button should be enabled until all fildes are filled. and then clicking on it should validate the data.
+    const isEmpty = false; // should be true while the fildes are empty. i set is to false for now, so the button will be abled 
+    const handleClick = () => {
+        // if username != '' and password != '' (goal - the button is abled..), it should validate the info
+        alert(username);
+    }  
+
+
+    return (
+        
+        <div className="main-block">
+            <h1>Login</h1>
+            <form>
+                <div className="mb-3">
+                    <label htmlFor="inputUsername2" className="form-label">Username</label>
+                    <input type="username" className="form-control" id="inputUsername2" aria-describedby="usernameHelp"
+                     required value={username} onChange={(e) => setUsername(e.target.value)}></input>
+                </div>
+                <div className="mb-3">
+                    <label htmlFor="inputPassword2" className="form-label">Password</label>
+                    <input type="password" id="inputPassword2" className="form-control" aria-describedby="passwordHelpBlock"
+                     required value={password} onChange={(e) => setPassword(e.target.value)}></input>
+                </div>
+                <button type="Login" className="btn btn-primary" disabled = {isEmpty} onClick={handleClick}>Submit</button>
+                <span id="notRegistered" className="form-text"> Not registered?</span>
+                <span>
+                    <BrowserRouter>
+                        <Routes> <Route path="/register" element={<Registration />}></Route> </Routes>
+                        <Link to="/register" className="form-text"> Click here</Link>
+                    </BrowserRouter>
+                </span>
+                <span className="form-text"> to regiser</span>
+            </form>
+        </div>
+    );
 }
 
 export default Login;
