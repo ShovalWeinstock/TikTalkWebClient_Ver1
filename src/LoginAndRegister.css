@@ -1,0 +1,45 @@
+html, body {
+    background-color: #B7CADB;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+body, div, h1, form, input, p { 
+    padding: 0;
+    margin: 0;
+    outline: none;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 16px;
+    color: #666; 
+}
+
+.main-block {
+    position: fixed;
+    top: 10%;
+    left: 40%;
+    min-width: 360px;
+    min-height: 300px; 
+    padding: 30px 0;
+    margin: auto;
+    border-radius: 5px; 
+    border: solid 1px #ccc;
+    box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+    background: #ebebeb; 
+ }
+
+h1 {
+        padding: 10px 0;
+        font-size: 32px;
+        font-weight: 300;
+        text-align: center;
+}
+
+form {
+        margin: 0 30px;
+}
+
+/* .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #7DA1BF !important;
+    border-color: #7DA1BF !important;
+} */
