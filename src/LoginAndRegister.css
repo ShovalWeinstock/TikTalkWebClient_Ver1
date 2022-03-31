@@ -1,5 +1,6 @@
 html, body {
-    background-color: #B7CADB;
+    /* background-color: #B7CADB; */
+    background-image: url('background.jpg');
     display: flex;
     justify-content: center;
     height: 100%;
@@ -25,7 +26,8 @@ body, div, h1, form, input, p {
     border-radius: 5px; 
     border: solid 1px #ccc;
     box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
-    background: #ebebeb; 
+    /* background: #ebebeb;  */
+    background: #dce8d2;
  }
 
 h1 {
