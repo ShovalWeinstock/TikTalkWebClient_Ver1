@@ -1,5 +1,5 @@
 import './LoginAndRegister.css';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link ,Navigate} from 'react-router-dom';
 import Registration from './Registration';
 import { useState } from 'react';
 
@@ -15,10 +15,8 @@ function Login() {
         alert(username);
     }  
 
-
     return (
-        
-        <div className="main-block">
+        <div className="main-block" id = "login">
             <h1>Login</h1>
             <form>
                 <div className="mb-3">

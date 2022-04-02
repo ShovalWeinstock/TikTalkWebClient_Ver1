@@ -11,7 +11,7 @@ function Registration() {
             <form>
                 <div className="mb-3">
                     <label htmlFor="inputUsername" className="form-label">Username*</label>
-                    <input type="username" className="form-control" id="inputUsername" aria-describedby="usernameHelp"></input>
+                    <input type="username" className="form-control" id="inputUsername" aria-describedby="usernameHelp" required></input>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="inputNickname" className="form-label">Nickname</label>
@@ -19,11 +19,11 @@ function Registration() {
                 </div>
                 <div className="mb-3">
                     <label htmlFor="inputPassword" className="form-label">Password*</label>
-                    <input type="password" id="inputPassword" className="form-control" aria-describedby="passwordHelpBlock"></input>
+                    <input type="password" id="inputPassword" className="form-control" aria-describedby="passwordHelpBlock" required></input>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="confirmPassword" className="form-label">Confirm Password*</label>
-                    <input type="password" id="confirmPassword" className="form-control" aria-describedby="passwordHelpBlock"></input>
+                    <input type="password" id="confirmPassword" className="form-control" aria-describedby="passwordHelpBlock" required></input>
                     <div id="passwordHelpBlock" className="form-text">
                         Your password must contain:<br></br>
                         - At least 8 characters<br></br>
