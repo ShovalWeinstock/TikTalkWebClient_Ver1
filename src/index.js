@@ -15,7 +15,7 @@ import Registration from './Registration';
 // );
 ReactDOM.render(
   <React.StrictMode>
-    <Login />
+    <Registration />
   </React.StrictMode>,
   document.getElementById('root')
 );
