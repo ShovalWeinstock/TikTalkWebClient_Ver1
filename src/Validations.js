@@ -1,4 +1,4 @@
-const users = {shoval : { name: "shoval", nickname: "shov", password: "1235678Aa" }};
+const users = [{username: "shoval", nickname: "shov", password: "1235678Aa" }];
 
 const isValidPassword = (password) => {
     const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
@@ -9,19 +9,24 @@ const isValidPassword = (password) => {
 }
 
 const isValidUsername = (username) => {
-    if (username == "shoval") {
-        return false;
-
+    var usernameExsits = true;
+    const usersNum = users.length;
+    var i;
+    for(i = 0; i < usersNum; i++) {
+        if(users[i].username == username) {
+            usernameExsits = false;
+            break;
+        }
     }
-    return true;
+    return usernameExsits;
 }
 
 const addUser = (username, nickName, password) => {
-
+    const newUser = {username: username, nickName: nickName, password: password};
+    users.push(newUser);
 }
 
 export const register = (username, nickName, password, confirmation) => {
-
     var validInfo = true;
     // username validation:
     if (username == '') {
