@@ -1,10 +1,11 @@
-const users = [{name: "shoval", nickname: "shov", password: "1235678Aa"}];
+const users = [{ name: "shoval", nickname: "shov", password: "1235678Aa" }];
 
 const isValidPassword = (password) => {
-    if (password.length < 8) {
-        return false;
+    const regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$";
+    if (regex.test(password)) {
+        return true;
     }
-    return true;
+    return false;
 }
 
 const isValidUsername = (username) => {
@@ -12,30 +13,46 @@ const isValidUsername = (username) => {
         return false;
 
     }
-        return true;
+    return true;
 }
-
 
 const addUser = (username, nickName, password) => {
 
 }
 
-
 export const register = (username, nickName, password, confirmation) => {
-    if(username == '' || password == '' || confirmation == '') {
-        alert("missing info");
+
+    var validInfo = true;
+
+    if (username == '') {
+        document.getElementById("usernameErrors").innerHTML = "Username required";
+        validInfo = false;
     }
-    else if(!isValidUsername(username)) {
-        alert("username already exists");
+    else if (!isValidUsername(username)) {
+        document.getElementById("usernameErrors").innerHTML = "Username already exists";
+        validInfo = false;
+    }
+
+    if (password == '') {
+        document.getElementById("passwordErrors").innerHTML = "Password required";
+        validInfo = false;
     }
     else if (!isValidPassword(password)) {
-        alert("invalid password");
+        document.getElementById("passwordErrors").innerHTML = "Invalid password";
+        validInfo = false;
+    }
+
+    if (confirmation == '') {
+        document.getElementById("confirmationErrors").innerHTML = "Password confirmation required";
+        validInfo = false;
     }
     else if (password != confirmation) {
-        alert("passwords don't match");
+        document.getElementById("confirmationErrors").innerHTML = "Passwords don't match";
+        validInfo = false;
     }
-    else {
-        alert("registration completed")
+
+    if (validInfo) {
+        alert("registration completed");
         if (nickName == "") {
             nickName = username;
         }
@@ -43,6 +60,8 @@ export const register = (username, nickName, password, confirmation) => {
         //enter the chats screen (until it will be ready - enters login screen) 
     }
 }
+
+
 
 export const login = (username, password) => {
 
