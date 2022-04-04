@@ -1,5 +1,37 @@
-html, body {
-    /* background-color: #B7CADB; */
+/* * {
+    margin: 0;
+    padding: 0;
+} */
+
+body {
+    background-image: url('background.jpg');
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Roboto, Arial, sans-serif;
+}
+
+.main-block {
+    min-width: 360px;
+    min-height: 300px;
+    padding: 30px 0;
+    margin: auto;
+    box-sizing: border-box;
+    background: #dce8d2;
+    border-radius: 5px;
+    border: solid 1px #ccc;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, .31);
+}
+
+.errorMessege {
+    color: #a32236;
+    font-size: 12px;
+}
+
+
+/* html, body {
     background-image: url('background.jpg');
     display: flex;
     justify-content: center;
@@ -12,14 +44,15 @@ body, div, h1, form, input, p{
     outline: none;
     font-family: Roboto, Arial, sans-serif;
     font-size: 16px;
-    /* color: #666;  */
-    /* color: #3a4946; */
-}
-.form-text{
-    color: #3a4946
-}
+} */
 
-.main-block {
+/* problem: I used 'position:fixed' for the main block.
+It makes the registration form appear on top of the login form (so it looks like it replaces it, but it isnt..).
+also it makes the main block element not to react to scroll. 
+we need to understand how to *replace* the login main block with the registration main block by 
+clicking on "click here" link. */
+
+/* .main-block {
     position: fixed;
     top: 10%;
     left: 40%;
@@ -30,25 +63,31 @@ body, div, h1, form, input, p{
     border-radius: 5px; 
     border: solid 1px #ccc;
     box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
-    /* background: #ebebeb;  */
     background: #dce8d2;
- }
+ } */
 
 h1 {
-        padding: 10px 0;
-        font-size: 32px;
-        font-weight: 300;
-        text-align: center;
+    padding: 10px 0;
+    font-size: 32px;
+    font-weight: 300;
+    text-align: center;
 }
 
 form {
-        margin: 0 30px;
+    margin: 0 30px;
 }
 
-.btn-primary, .btn-primary:active, .btn-primary:visited{
+.form-text {
+    color: #3a4946
+}
+
+.btn-primary,
+.btn-primary:active,
+.btn-primary:visited {
     background-color: #445551 !important;
     border-color: #445551 !important;
 }
+
 .btn-primary:hover {
     background-color: #3a4946 !important;
     border-color: #3a4946 !important;
