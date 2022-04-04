@@ -8,7 +8,7 @@ function Search({doSearch}) {
     return (
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">@</span>
-            <input ref={searchBox} onKeyUp={search} type="text" class="form-control" placeholder="search" aria-label="Username" aria-describedby="basic-addon1" ></input>
+            <input ref={searchBox} onKeyUp={search} type="text" class="form-control" placeholder="search" aria-label="Username" aria-describedby="basic-addon1"></input>
         </div>
     )
 }

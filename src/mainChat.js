@@ -1,4 +1,4 @@
-import './App.css';
+import './MainChat.css';
 import './contactItem/ContactItem'
 import ContactItem from './contactItem/ContactItem';
 import contacts from './contactItem/Contacts';
@@ -6,8 +6,8 @@ import { useState } from 'react'
 import Search from './search/Search';
 import ContactListReasults from './contactListResult/ContactListResults';
 import AddContactBTN from './buttons/AddContactBTN';
-
-function App() {
+import TypingArea from './typingArea/TypingArea';
+function MainChat() {
 
 
   const [contactList, setContactList] = useState(contacts);
@@ -23,9 +23,10 @@ function App() {
           <div class="bg-white">
             <div class="bg-gray px-4 py-2 bg-light">
               <span class="h5 mb-0 py-1">Recent</span>
-              <AddContactBTN/>
+              <AddContactBTN />
               <Search doSearch={doSearch} />
             </div>
+
             <div class="messages-box">
               <ContactListReasults contactlis={contactList} />
             </div>
@@ -54,26 +55,12 @@ function App() {
                 <p class="small text-muted">12:00 PM | Aug 13</p>
               </div>
             </div>
-
-
           </div>
-
-          {/* Typing area */}
-          <form action="#" class="bg-light">
-            <div class="input-group">
-              <input type="text" placeholder="Type a message" aria-describedby="button-addon2"
-                class="form-control rounded-0 border-0 py-4 bg-light"></input>
-              <div class="input-group-append">
-                <button id="button-addon2" type="submit" class="btn btn-primary"> send<i
-                  class="fa fa-paper-plane"></i></button>
-              </div>
-            </div>
-          </form>
-
+          <TypingArea/>
         </div>
       </div>
     </div>
   );
 }
 
-export default App;
+export default MainChat;
