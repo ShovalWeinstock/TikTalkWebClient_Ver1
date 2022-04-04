@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-//import './index.css';
-//import App from './App';
-import Login from './Login';
-import './Registration'
-import Registration from './Registration';
+import './index.css';
+import App from './App';
+  // import Login from './Login';
+  // import './Registration'
+  // import Registration from './Registration';
 
 //find the element "rood", and paint on it ./app on
 // ReactDOM.render(
@@ -15,7 +15,7 @@ import Registration from './Registration';
 // );
 ReactDOM.render(
   <React.StrictMode>
-    <Registration />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
