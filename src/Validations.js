@@ -77,7 +77,6 @@ const isValidLoginInfo = (username, password) => {
     var i;
     for (i = 0; i < usersNum; i++) {
         if (users[i].username == username && users[i].password == password) {
-            alert("hi");
             validInfo = true;
         }
         break;
