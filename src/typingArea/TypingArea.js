@@ -1,4 +1,5 @@
 import './TypingArea.css';
+import addMsg from '../mainChat' 
 function TypingArea({ doSearch }) {
 
     return (
@@ -7,8 +8,7 @@ function TypingArea({ doSearch }) {
                 <input type="text" placeholder="Type a message" aria-describedby="button-addon2"
                     class="form-control rounded-0 border-0 py-4 bg-light"></input>
                 <div class="input-group-append">
-                    <button id="button-addon2" type="submit" class="btn btn-primary"> send<i
-                        class="fa fa-paper-plane"></i></button>
+                    {/* <button id="button-addon2" type="submit" class="btn btn-primary" onClick={addMsg}> send</button> */}
                 </div>
                 <div class="dropup">
                     <button class="dropbtn">Dropup</button>
