@@ -7,13 +7,6 @@ import App from './mainChat';
   // import './Registration'
   // import Registration from './Registration';
 
-//find the element "rood", and paint on it ./app on
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );
 ReactDOM.render(
   <React.StrictMode>
     <MainChat />
