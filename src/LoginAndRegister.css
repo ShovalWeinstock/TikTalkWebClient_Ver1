@@ -10,6 +10,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
     font-family: Roboto, Arial, sans-serif;
 }
 

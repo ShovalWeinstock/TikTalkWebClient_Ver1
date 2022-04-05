@@ -68,9 +68,6 @@ function Login() {
 
     return (
         <div className="main-block" id="login">
-            <pre>{JSON.stringify(username, undefined, 2)}</pre>
-            <pre>{JSON.stringify(password, undefined, 2)}</pre>
-
             <h1>Login</h1>
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
