@@ -1,4 +1,7 @@
-const users = [{ username: "shoval", nickname: "shov", password: "12345678Aa" }];
+import defauldImg from './defaultImage.jpg';
+
+
+const users = [{ username: "shoval", nickname: "shov", password: "12345678Aa", profilePic: defauldImg }];
 
 //registration:
 
@@ -67,7 +70,6 @@ export const register = (username, nickName, password, confirmation) => {
         //enter the chats screen (until it will be ready - enters login screen) 
     }
 }
-
 
 // login:
 
