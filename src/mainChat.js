@@ -19,11 +19,13 @@ function MainChat() {
     <div class="container py-5 px-4">
       <div class="row rounded-lg overflow-hidden shadow">
         {/* Users box */}
+
         <div class="col-5 px-0">
           <div class="bg-white">
             <div class="bg-gray px-4 py-2 bg-light">
               <span class="h5 mb-0 py-1">Recent</span>
               <AddContactBTN />
+
               <Search doSearch={doSearch} />
             </div>
 
@@ -56,7 +58,7 @@ function MainChat() {
               </div>
             </div>
           </div>
-          <TypingArea/>
+          <TypingArea />
         </div>
       </div>
     </div>
