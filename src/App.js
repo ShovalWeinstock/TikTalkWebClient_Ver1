@@ -9,9 +9,10 @@ function App() {
             <Routes>
                 <Route path="/" element={<Login />}/>
                 <Route path="/register" element={<Registration />}/>
-                <Route path="/chats" element={<MainChat />}/>
             </Routes>
         </BrowserRouter>
     );
 }
 export default App;
+
+// <Route path="/chats" element={<MainChat />}/>

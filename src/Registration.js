@@ -1,9 +1,7 @@
 import './LoginAndRegister.css';
 import { useState } from "react";
 import { register } from './Validations.js';
-//import { BrowserRouter, Routes, Route, Link, Navigate } from 'react-router-dom';
 import defauldImg from './defaultImage.jpg';
-
 
 function Registration() {
 
@@ -11,6 +9,7 @@ function Registration() {
     const [nickname, setNickname] = useState('');
     const [password, setPassword] = useState('');
     const [confirmation, setConfirmation] = useState('');
+    const [profilePic, setProfilePic] = useState(defauldImg);
 
     const clearErrors = () => {
         document.getElementById("usernameErrors").innerHTML = "";
@@ -18,26 +17,17 @@ function Registration() {
         document.getElementById("confirmationErrors").innerHTML = "";
     }
 
+    const uploadImg = (e) => {
+        // e.preventDefault();
+        console.log(e.target.files);
+        setProfilePic(URL.createObjectURL(e.target.files[0]));
+    }
+
     const handleSubmit = (e) => {
         clearErrors();
         e.preventDefault();
-        register(username, nickname, password, confirmation);
+        register(username, nickname, password, confirmation, profilePic);
     }
-
-    // const imageHandler = (e) => {
-    //     const reader = new FileReader();
-    //     reader.onload = () => {
-    //         // image = reader.result;
-    //         if (reader.readyState === 2) {
-    //             image = reader.result;
-    //         }
-    //     }
-    //     reader.readAsDataURL(e.target.files[0]);
-    //     console.log(image);
-    // }
-
-    // add reguired to all input tags (except nickname) ? then the errors don't appear on the screen..
-    // <img src={image} id="img" className="img" />
 
     return (
         <div className="main-block">
@@ -75,13 +65,14 @@ function Registration() {
                 </div>
                 <div className="mb-3">
                     <label htmlFor="formFile" className="form-label">Image</label>
-                    <input className="form-control" type="file" id="formFile" accept="image/*"></input>
+                    <input className="form-control" type="file" id="formFile" accept="image/*" onChange={uploadImg}></input>
+                    <img src={profilePic} className="img"></img>
                 </div>
                 <div className="mb-3">
+                    <button type="Submit" className="btn btn-primary">Submit</button>
                 </div>
-                <button type="Submit" className="btn btn-primary">Submit</button>
-            </form >
-        </div >
+            </form>
+        </div>
     );
 }
 

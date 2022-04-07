@@ -1,6 +1,5 @@
 import defauldImg from './defaultImage.jpg';
 
-
 const users = [{ username: "shoval", nickname: "shov", password: "12345678Aa", profilePic: defauldImg }];
 
 //registration:
@@ -26,12 +25,12 @@ const isAvailableUsername = (username) => {
     return available;
 }
 
-const addUser = (username, nickName, password) => {
-    const newUser = { username: username, nickName: nickName, password: password };
-    users.push(newUser);
-}
+// const addUser = (username, nickName, password, profilePic) => {
+//     const newUser = { username: username, nickName: nickName, password: password, profilePic: profilePic};
+//     users.push(newUser);
+// }
 
-export const register = (username, nickName, password, confirmation) => {
+export const register = (username, nickName, password, confirmation, profilePic) => {
     var validInfo = true;
     // username validation:
     if (username == '') {
@@ -66,7 +65,9 @@ export const register = (username, nickName, password, confirmation) => {
         if (nickName == "") {
             nickName = username;
         }
-        addUser(username, nickName, password);
+        // addUser(username, nickName, password, profilePic);
+        const newUser = { username: username, nickName: nickName, password: password, profilePic: profilePic };
+        users.push(newUser);
         //enter the chats screen (until it will be ready - enters login screen) 
     }
 }
