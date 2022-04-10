@@ -30,6 +30,8 @@ function MainChatNew() {
                 </div>
             </div>
 
+
+
             <div className="rightSide"></div>
         </div>
     );
