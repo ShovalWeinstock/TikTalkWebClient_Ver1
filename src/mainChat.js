@@ -16,21 +16,18 @@ function MainChat() {
 
   const [msgList, setMsgList] = useState(messages);
   const addMsg = function (msg) {
-    const newMsg = {msgStyle1:"media w-50 ml-auto mb-3", msgStyle2:"bg-primary rounded py-2 px-3 mb-2", msgStyle3:"text-small mb-0 text-white",  content: msg};
-    setMsgList(messages.push(newMsg));
-    //setMsgList(alert("hi"))
+    // const newMsg = {content: msg};
+    const newMsg = [{msgStyle1:"media w-50 ml-auto mb-3", msgStyle2:"bg-primary rounded py-2 px-3 mb-2", msgStyle3:"text-small mb-0 text-white",  content: msg}];
+    // messages.push(newMsg);
+    setMsgList(messages.concat(newMsg));
   }
   
   const [contactList, setContactList] = useState(contacts);
   const doSearch = function (q) {
+    console.log(q);
     setContactList(contacts.filter((contacts) => contacts.name.includes(q)))
   }
 
-
-  // function setMsgList(msgStyle1, msgStyle2, msgStyle3, content) {
-  //     const newMsg = { msgStyle1: msgStyle1, msgStyle2: msgStyle2, msgStyle3: msgStyle3, content: content };
-  //     messages.push(newMsg);
-  // }
   return (
     <div className="container py-5 px-4">
       <div className="row rounded-lg overflow-hidden shadow">
@@ -53,7 +50,7 @@ function MainChat() {
             <MsgLoopCreator msglis={msgList} />
           </div>
           <TypingArea />
-          <button id="button-addon2" type="submit" class="btn btn-primary" onClick={addMsg}> send</button>
+          <button id="button-addon2" type="submit" className="btn btn-primary" onClick={addMsg}> send</button>
         </div>
       </div>
     </div>
