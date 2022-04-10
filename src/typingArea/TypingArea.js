@@ -1,5 +1,5 @@
 import './TypingArea.css';
-import addMsg from '../mainChat' 
+import addMsg from '../MainChat' 
 function TypingArea({ doSearch }) {
 
     return (

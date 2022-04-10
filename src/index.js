@@ -1,14 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import MainChat from './mainChat';
-  // import Login from './Login';
-  // import './Registration'
-  // import Registration from './Registration';
+// import App from './App';
+// import MainChat from './MainChat';
+import MainChatNew from './MainChatNew';
 
 ReactDOM.render(
   <React.StrictMode>
-    <MainChat />
+    <MainChatNew />
   </React.StrictMode>,
   document.getElementById('root')
 );
