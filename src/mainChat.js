@@ -1,6 +1,6 @@
 // import './MainChat.css';
-import './contactItem/ContactItem'
-import contacts from './contactItem/Contacts';
+import './users/ContactItem'
+import contacts from './users/Contacts';
 import { useState } from 'react'
 import Search from './search/Search';
 import ContactListReasults from './contactListResult/ContactListResults';

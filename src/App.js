@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Registration from './Registration';
-import Login from './Login';
+import Registration from './register/Registration';
+import Login from './login/Login';
 import MainChatNew from './MainChatNew';
 
 

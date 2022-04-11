@@ -1,7 +1,7 @@
-import './LoginAndRegister.css';
+import '../LoginAndRegister.css';
 import { useState } from "react";
-import { register } from './Validations.js';
-import defauldImg from './defaultImage.jpg';
+import { register } from './registerValidations.js';
+import defauldImg from '../defaultImage.jpg';
 
 function Registration() {
 

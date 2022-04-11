@@ -2,7 +2,7 @@ import './MainChatNew.css';
 import defauldImg from './defaultImage.jpg';
 import AddContactBTN from './buttons/AddContactBTN';
 import { useState } from 'react'
-import contacts from './contactItem/Contacts';
+import contacts from './users/Contacts';
 import ContactListReasults from './contactListResult/ContactListResults';
 import Search from './search/Search';
 import TypingArea from './typingArea/TypingArea';

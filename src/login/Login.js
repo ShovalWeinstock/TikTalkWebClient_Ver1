@@ -1,7 +1,7 @@
-import './LoginAndRegister.css';
+import '../LoginAndRegister.css';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import { login } from './Validations.js';
+import { login } from './loginValidations.js';
 
 function Login() {
 
