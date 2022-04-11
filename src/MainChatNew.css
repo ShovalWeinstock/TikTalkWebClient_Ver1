@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Roboto, Verdana, sans-serif !important;
+    color: #595959;
 }
 
 /* body {
@@ -127,7 +128,7 @@ h6 {
 .contactItemHeader {
     display: flex;
     justify-content: space-between;
-    /* margin-bottom: 5px; */
+    margin-bottom: -15px;
     margin-top: 10px;
 }
 
@@ -146,10 +147,15 @@ h6 {
 }
 
 #addContact {
+    background-color: #DEDEDE !important;
+    border-color: #DEDEDE !important;
     margin-left: 40px;
     border-radius: 50%;
     width: 40px;
     height: 40px;
+}
+#addContact:hover{
+    background-color: lightgrey !important;
 }
 
 .chat {
@@ -189,3 +195,6 @@ h6 {
     border-color: #445551 !important;
 }
 
+.dropdown-item {
+    justify-content: space-between;
+}

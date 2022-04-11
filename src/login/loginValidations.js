@@ -1,6 +1,5 @@
+import MainChatNew from "../MainChatNew";
 import users from "../users/users"
-
-// login:
 
 const isValidLoginInfo = (username, password) => {
     var validInfo = false;
@@ -23,7 +22,5 @@ export const login = (username, password) => {
         alert("logged in successfully");
         // const navigate = useNavigate();
         // navigate('/mainChat');
-
-        //enter the chats screen (until it will be ready - enters login screen) 
     }
 }

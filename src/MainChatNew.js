@@ -14,8 +14,10 @@ function MainChatNew() {
         console.log(q);
         setContactList(contacts.filter((contacts) => contacts.name.includes(q)))
     }
+    
     return (
         <div className="container">
+
             <div className="leftSide">
                 <div className='header'>
                     <div className='profilePicture'>
@@ -33,19 +35,16 @@ function MainChatNew() {
             </div>
 
             <div className="rightSide">
-
                 <div className='header'>
                     <div className='profilePicture'>
                         <img src={defauldImg} className="cover"></img>
                     </div>
                     <h6>Contact name</h6>
-                </div>
-                
+                </div>           
 
                 <div className='chat'>
 
                 </div>
-
 
                 <div className='chatInput'>
                     <TypingArea />
