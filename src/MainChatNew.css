@@ -2,50 +2,50 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
+    font-family: Roboto, Verdana, sans-serif !important;
 }
 
-body {
+/* body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background: #617a74;
-}
+} */
 
 .container {
     position: relative;
     width: 1000px;
     max-width: 100%;
     height: calc(100vh - 40px);
-    background: #d5f5ed;
+    background: #dce8d2;
     display: flex;
-    /* //box-shadow: 0 1px 1px #617a74, 0 2px 5px 0 #617a74; */
     border-radius: 5px;
     border: solid 1px #ccc;
     box-shadow: 1px 2px 5px rgba(0, 0, 0, .31);
 }
 
-.container .leftSide {
+.container,
+.leftSide {
     position: relative;
     flex: 30%;
-    background: #d9f8f0;
+    background: #dce8d2;
     border-right: #a8ccc3;
+    border-radius: 5px;
 }
 
-.container .rightSide {
+.rightSide {
     position: relative;
     flex: 70%;
-    background: #d5f5ed;
+    background: #f5f5f5ae;
 }
 
 .header {
     position: relative;
     width: 100%;
     height: 60px;
-    background: #652d59;
+    background: #dce8d2;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 0 10px;
 }
@@ -56,13 +56,13 @@ body {
     height: 50px;
     overflow: hidden;
     border-radius: 50%;
-
+    margin-right: 10px;
 }
 
 .cover {
     position: absolute;
-    top: 0;
-    left: 0;
+    /* top: 0;
+    left: 0; */
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -72,55 +72,96 @@ body {
     position: relative;
     width: 100%;
     height: 50px;
-    background: #08654e;
+    background: #F5F5F5;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0 15px;
 }
 
-input{
+input {
     width: 100%;
     outline: none;
     border: none;
-    background: #7b5e75; /*wtf*/
+    background: #DEDEDE;
     padding: 6px;
     height: 38px;
     border-radius: 30px;
     padding-left: 20px;
 }
 
-/* .chatsList{
+.chatsList {
     position: relative;
-    overflow-y: auto; */
-    /*height: calc(100% - 50 - 60); *//*100% - searchChat height - header height*/
-    /* background: #3b6bd2;
-} */
+    overflow-y: auto;
+    height: calc(100% - 50px - 60px);
+    /*100% - searchChat height - header height*/
+}
 
-.contact{
-    position: relative;
-    width: 100%;
-    display: flex;
-    /* justify-content: center; */
-    align-items: center;
-    padding: 15px;
-    border-bottom: 1px solid #93d23b;
+.contact {
+    height: 90px;
     cursor: pointer;
+    align-items: center;
+    border-bottom: 1px solid #aaa;
+    padding: 10px 15px;
+    display: flex;
+    vertical-align: baseline;
+    background: #F5F5F5;
+}
+
+.contact:hover {
+    background-color: #DEDEDE !important;
+    border-color: #DEDEDE !important;
 }
 
 h6 {
     font-weight: bold;
+    font-size: 1em;
 }
 
 .contactDetails {
     margin-left: 15px;
-
+    position: relative;
+    width: 100%;
 }
 
-/* .chatsList, .contact{
-    position: relative;
-    width: 45px;
-    height: 45px;
+.chatHeader {
+    display: flex;
+    justify-content: space-between;
+    /* margin-bottom: 5px; */
+    margin-top: 10px;
+}
+
+.time {
+    size: 0.75em;
+    color: #aaa;
+}
+
+.lastMessege {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
     overflow: hidden;
-    border-radius: 50% ;
-} */
+    text-overflow: ellipsis;
+}
+
+#addContact {
+    margin-left: 40px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.chat{
+    width: 100%;
+}
+
+.chatInput{
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    padding:15px;
+    display: flex;
+    justify-content: space-between;
+    bottom: 5px;
+}

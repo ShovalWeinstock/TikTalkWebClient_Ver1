@@ -1,4 +1,6 @@
 import defauldImg from './defaultImage.jpg';
+// import { useNavigate } from 'react-router-dom';
+
 
 const users = [{ username: "shoval", nickname: "shov", password: "12345678Aa", profilePic: defauldImg }];
 
@@ -93,6 +95,9 @@ export const login = (username, password) => {
     }
     else {
         alert("logged in successfully");
+        // const navigate = useNavigate();
+        // navigate('/mainChat');
+
         //enter the chats screen (until it will be ready - enters login screen) 
     }
 }

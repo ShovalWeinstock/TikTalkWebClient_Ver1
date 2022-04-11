@@ -7,7 +7,7 @@ function Search({ doSearch }) {
     const search = function () {
         doSearch(searchBox.current.value);
     }
-    
+
     return (
         // <div className="input-group mb-3">
         //     {/*<span className="input-group-text" id="basic-addon1">@</span>*/}
