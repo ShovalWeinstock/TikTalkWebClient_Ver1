@@ -15,19 +15,19 @@ function TypingArea({ doSearch }) {
 
 
 
-// <div class="btn-group dropup">
-// <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-//   Dropup
-// </button>
-// <ul class="dropdown-menu">
-//   <!-- Dropdown menu links -->
-// </ul>
-// </div>
+
 
         <div class="input-group">
-            <input type="text" class="form-control" aria-label="Text input with segmented dropdown button"></input>
-                <button type="button" class="btn btn-outline-secondary">Action</button>
-                <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+
+            {/*Message typing area*/}
+            <input id="chatTypingArea" type="text" class="form-control" aria-label="Text input with segmented dropdown button"></input>
+
+            {/*"Send" button*/}
+            <button type="button" class="btn btn-outline-secondary"  id="sendMsgBtn">Send</button>
+            
+            {/*dropup*/}
+            <div class="btn-group dropup">
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" id="chatDropup">
                     <span class="visually-hidden">Toggle Dropdown</span>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end">
@@ -35,11 +35,20 @@ function TypingArea({ doSearch }) {
                     <li><a class="dropdown-item" href="#">Another action</a></li>
                     <li><a class="dropdown-item" href="#">Something else here</a></li>
                 </ul>
+            </div>
+
         </div>
 
     )
 }
 export default TypingArea;
 
-
+// <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+// <span class="visually-hidden">Toggle Dropdown</span>
+// </button>
+// <ul class="dropdown-menu dropdown-menu-end">
+// <li><a class="dropdown-item" href="#">Action</a></li>
+// <li><a class="dropdown-item" href="#">Another action</a></li>
+// <li><a class="dropdown-item" href="#">Something else here</a></li>
+// </ul>
 

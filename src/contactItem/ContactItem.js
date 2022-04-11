@@ -9,7 +9,7 @@ function ContactItem({ name, prevText, date }) {
 
             <div className="contactDetails">
 
-                <div className="chatHeader">
+                <div className="contactItemHeader">
                     <h6>{name}</h6>
                     <p className="time">{date}</p>
                 </div>
