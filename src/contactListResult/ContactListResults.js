@@ -1,4 +1,4 @@
-import ContactItem from "../contactItem/ContactItem";
+import ContactItem from "../users/ContactItem";
 function ContactListReasults({ contactlis }) {
     
     const contactList = contactlis.map((cont, key) => {

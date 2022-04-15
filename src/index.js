@@ -6,7 +6,7 @@ import MainChatNew from './MainChatNew';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App/>
+    <MainChatNew/>
   </React.StrictMode>,
   document.getElementById('root')
 );
