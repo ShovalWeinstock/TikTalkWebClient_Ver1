@@ -3,7 +3,7 @@ import './users/ContactItem'
 import contacts from './users/Contacts';
 import { useState } from 'react'
 import Search from './search/Search';
-import ContactListReasults from './contactListResult/ContactListResults';
+import ContactListReasults from './contactList/ContactList';
 import AddContactBTN from './buttons/AddContactBTN';
 import TypingArea from './typingArea/TypingArea';
 import messages from './message/Messages';

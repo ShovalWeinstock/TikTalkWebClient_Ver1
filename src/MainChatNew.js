@@ -1,36 +1,39 @@
 import './MainChatNew.css';
 import defauldImg from './defaultImage.jpg';
-import AddContactBTN from './buttons/AddContactBTN';
+import AddContact from './buttons/AddContact';
 import { useState } from 'react'
 import contacts from './users/Contacts';
-import ContactListReasults from './contactListResult/ContactListResults';
+import ContactList from './contactList/ContactList';
 import Search from './search/Search';
 import TypingArea from './typingArea/TypingArea';
 
 function MainChatNew() {
 
     const [contactList, setContactList] = useState(contacts);
+
     const doSearch = function (q) {
         console.log(q);
         setContactList(contacts.filter((contacts) => contacts.name.includes(q)))
     }
-    
+    const refreshList = function () {
+        setContactList([...contacts]);
+    }
+
     return (
         <div className="container">
-
             <div className="leftSide">
                 <div className='header'>
                     <div className='profilePicture'>
                         <img src={defauldImg} className="cover"></img>
                     </div>
                     <h6>Contact name</h6>
-                    <AddContactBTN />
+                    <AddContact refreshList={refreshList}/>
                 </div>
                 {/*Search Chat*/}
                 <Search doSearch={doSearch} />
                 {/*Chats list*/}
                 <div className="chatsList">
-                    <ContactListReasults contactlis={contactList} />
+                    <ContactList contactlis={contactList} />
                 </div>
             </div>
 
