@@ -7,7 +7,71 @@ import ContactList from './contactList/ContactList';
 import Search from './search/Search';
 import TypingArea from './typingArea/TypingArea';
 
-function MainChatNew() {
+
+// class MainChatNew extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = { username: props.username, contactList: contacts };
+//     }
+
+//     doSearch(q) {
+//         console.log(q);
+//         this.setState({
+//             contactList: contacts.filter((contacts) => contacts.name.includes(q))
+//         });
+//     }
+
+//     refreshList() {
+//         this.setState({
+//             contactList: [...contacts]
+//         });
+//     }
+
+//     render() {
+//         return (
+//             <div className="container">
+
+//                 <div className="leftSide">
+//                     <div className='header'>
+//                         <div className='profilePicture'>
+//                             <img src={defauldImg} className="cover"></img>
+//                         </div>
+//                         <h6>Contact name</h6>
+//                         <AddContact refreshList={(refreshList)} />
+//                     </div>
+
+//                     {/*Search Chat*/}
+//                     <Search doSearch={doSearch} />
+
+//                     {/*Chats list*/}
+//                     <div className="chatsList">
+//                         <ContactList contactlis={this.state.contactList} />
+//                     </div>
+//                 </div>
+
+//                 {/*Current chat*/}
+//                 <div className="rightSide">
+//                     <div className='header'>
+//                         <div className='profilePicture'>
+//                             <img src={defauldImg} className="cover"></img>
+//                         </div>
+//                         <h6>Contact name</h6>
+//                     </div>
+//                     {/*Conversation*/}
+//                     <div className='chat'>
+//                     </div>
+//                     {/*Input area*/}
+//                     <div className='chatInput'>
+//                         <TypingArea />
+//                     </div>
+
+//                 </div>
+//             </div>
+//         );
+//     }
+// }
+
+function MainChatNew(props) {
 
     const [contactList, setContactList] = useState(contacts);
 
@@ -15,40 +79,44 @@ function MainChatNew() {
         console.log(q);
         setContactList(contacts.filter((contacts) => contacts.name.includes(q)))
     }
+
     const refreshList = function () {
         setContactList([...contacts]);
     }
 
     return (
         <div className="container">
+
             <div className="leftSide">
                 <div className='header'>
                     <div className='profilePicture'>
                         <img src={defauldImg} className="cover"></img>
                     </div>
-                    <h6>Contact name</h6>
-                    <AddContact refreshList={refreshList}/>
+                    <h6>{props.user}</h6>
+                    <AddContact refreshList={refreshList} />
                 </div>
+
                 {/*Search Chat*/}
                 <Search doSearch={doSearch} />
+
                 {/*Chats list*/}
                 <div className="chatsList">
                     <ContactList contactlis={contactList} />
                 </div>
             </div>
 
+            {/*Current chat*/}
             <div className="rightSide">
                 <div className='header'>
                     <div className='profilePicture'>
                         <img src={defauldImg} className="cover"></img>
                     </div>
                     <h6>Contact name</h6>
-                </div>           
-
-                <div className='chat'>
-
                 </div>
-
+                {/*Conversation*/}
+                <div className='chat'>
+                </div>
+                {/*Input area*/}
                 <div className='chatInput'>
                     <TypingArea />
                 </div>

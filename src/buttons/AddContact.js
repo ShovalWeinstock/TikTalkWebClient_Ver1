@@ -7,17 +7,17 @@ function AddContact({ refreshList }) {
 
   const [username, setUsername] = useState('');
 
-  const clearErrors = () => {
-    document.getElementById("addContactError").innerHTML = "";
-  }
-
   const handleClick = (e) => {
     e.preventDefault();
-    clearErrors();
+    // Clear errors
+    document.getElementById("addContactError").innerHTML = "";
+    // Clear input
     setUsername("")
   }
 
+  // Add a new contact
   const addCont = (e) => {
+    // If the user doesn't exsit
     if (!usernameExists(username)) {
       document.getElementById("addContactError").innerHTML = "Username doesn't exist";
     }

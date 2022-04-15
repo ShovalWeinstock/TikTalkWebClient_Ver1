@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 // import MainChat from './MainChat';
 import MainChatNew from './MainChatNew';
+import Login from './login/Login';
 
 ReactDOM.render(
   <React.StrictMode>
