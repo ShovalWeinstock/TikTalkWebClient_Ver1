@@ -15,17 +15,17 @@ const isValidPassword = (password) => {
     return false;
 }
 
-const isAvailableUsername = (username) => {
-    var available = true;
+const usernameExists = (username) => {
+    var usernameExists = false;
     const usersNum = users.length;
     var i;
     for (i = 0; i < usersNum; i++) {
         if (users[i].username == username) {
-            available = false;
+            usernameExists = true;
             break;
         }
     }
-    return available;
+    return usernameExists;
 }
 
 // const addUser = (username, nickName, password, profilePic) => {
@@ -40,7 +40,7 @@ export const register = (username, nickName, password, confirmation, profilePic)
         document.getElementById("usernameErrors").innerHTML = "Username required";
         validInfo = false;
     }
-    else if (!isAvailableUsername(username)) {
+    else if (usernameExists(username)) {
         document.getElementById("usernameErrors").innerHTML = "Username already exists";
         validInfo = false;
     }
