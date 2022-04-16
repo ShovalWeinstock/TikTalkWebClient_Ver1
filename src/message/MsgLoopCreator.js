@@ -3,7 +3,7 @@ import Message from "./Message";
 
 
 
-function MsgLoopCreator({ msglis }) {
+function MsgLoopCreator({ msglis}) {
     console.log( msglis instanceof Array);
     console.log(msglis);
     const messageList = msglis.map((msg, key) => {
