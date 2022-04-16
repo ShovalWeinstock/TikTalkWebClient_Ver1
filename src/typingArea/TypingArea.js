@@ -7,7 +7,10 @@ function TypingArea({refreshChat}) {
     const [currentMsg, setCurrentMsg] = useState('');
 // Add a new message
   const addMsg = () => {
-      var newMgs = {msgStyle1:"media w-50 ml-auto mb-3", msgStyle2:"bg-primary rounded py-2 px-3 mb-2", msgStyle3:"text-small mb-0 text-white",  content: currentMsg};
+    var currTime = new Date();
+    var date = currTime.getFullYear()+'-'+(currTime.getMonth()+1)+'-'+currTime.getDate();
+    var time = currTime.getHours() + ":" + currTime.getMinutes();
+    var newMgs = {msgStyle1:"media w-50 ml-auto mb-3", msgStyle2:"bg-primary rounded py-2 px-3 mb-2", msgStyle3:"text-small mb-0 text-white",  content: currentMsg, currTime: date+' | '+time};
       messages.push(newMgs);
       // reload the message in the chat again
       refreshChat();

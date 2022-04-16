@@ -1,4 +1,5 @@
-const contacts = [{name :"Sam", prevText:"hello", date: "24 dec"},
+import messages from "../message/Messages";
+const contacts = [{name :"Sam", prevText:"hello", date: messages[messages.length -1].currTime},
                     {name:"Guy", prevText:"bbbbb", date: "24 dec"},
                     {name:"Dan", prevText:"aaaaa", date: "24 dec"},
                     {name:"Ban", prevText:"aaaaa", date: "24 dec"},
