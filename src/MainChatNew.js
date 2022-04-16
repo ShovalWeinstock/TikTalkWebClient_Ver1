@@ -80,12 +80,16 @@ function MainChatNew(props) {
         console.log(q);
         setContactList(contacts.filter((contacts) => contacts.name.includes(q)))
     }
-    
+    // state var for updating the list of contacts
     const [contactList, setContactList] = useState(contacts);
+    //when called, only reload the contacts list
     const refreshList = function () {
         setContactList([...contacts]);
     }
+    // state var for updating the list of messages in the chat
+
     const [messageList, setMessageList] = useState(messages);
+    //when called, only reload the messages in the chat
     const refreshMsgList = function () {
         setMessageList([...messages]);
     }
@@ -126,8 +130,6 @@ function MainChatNew(props) {
                 {/*Input area*/}
                 <div className='chatInput'>
                     <TypingArea refreshChat={refreshMsgList}/>
-                    {/* <button type="button" class="btn btn-outline-secondary" id="sendMsgBtn">Send</button> */}
-
                 </div>
 
             </div>

@@ -16,7 +16,7 @@ function AddContact({ refreshList }) {
   }
 
   // Add a new contact
-  const addCont = (e) => {
+  const addCont = () => {
     // If the user doesn't exsit
     if (!usernameExists(username)) {
       document.getElementById("addContactError").innerHTML = "Username doesn't exist";
