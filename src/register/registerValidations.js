@@ -1,4 +1,6 @@
-const users = [{ username: "shoval", nickname: "shov", password: "12345678Aa" }];
+import users from "../users/users"
+// import defauldImg from './defaultImage.jpg';
+// import { useNavigate } from 'react-router-dom';
 
 //registration:
 
@@ -10,32 +12,32 @@ const isValidPassword = (password) => {
     return false;
 }
 
-const isAvailableUsername = (username) => {
-    var available = true;
+export const usernameExists = (username) => {
+    var usernameExists = false;
     const usersNum = users.length;
     var i;
     for (i = 0; i < usersNum; i++) {
         if (users[i].username == username) {
-            available = false;
+            usernameExists = true;
             break;
         }
     }
-    return available;
+    return usernameExists;
 }
 
-const addUser = (username, nickName, password) => {
-    const newUser = { username: username, nickName: nickName, password: password };
-    users.push(newUser);
-}
+// const addUser = (username, nickName, password, profilePic) => {
+//     const newUser = { username: username, nickName: nickName, password: password, profilePic: profilePic};
+//     users.push(newUser);
+// }
 
-export const register = (username, nickName, password, confirmation) => {
+export const register = (username, nickName, password, confirmation, profilePic) => {
     var validInfo = true;
     // username validation:
     if (username == '') {
         document.getElementById("usernameErrors").innerHTML = "Username required";
         validInfo = false;
     }
-    else if (!isAvailableUsername(username)) {
+    else if (usernameExists(username)) {
         document.getElementById("usernameErrors").innerHTML = "Username already exists";
         validInfo = false;
     }
@@ -63,34 +65,9 @@ export const register = (username, nickName, password, confirmation) => {
         if (nickName == "") {
             nickName = username;
         }
-        addUser(username, nickName, password);
+        // addUser(username, nickName, password, profilePic);
+        const newUser = { username: username, nickName: nickName, password: password, profilePic: profilePic };
+        users.push(newUser);
         //enter the chats screen (until it will be ready - enters login screen) 
     }
 }
-
-
-// login:
-
-const isValidLoginInfo = (username, password) => {
-    var validInfo = false;
-    const usersNum = users.length;
-    var i;
-    for (i = 0; i < usersNum; i++) {
-        if (users[i].username == username && users[i].password == password) {
-            validInfo = true;
-        }
-        break;
-    }
-    return validInfo;
-}
-
-export const login = (username, password) => {
-    if (username == '' || password == '' || !isValidLoginInfo(username, password)) {
-        document.getElementById("loginError").innerHTML = "Username or Password are invalid";
-    }
-    else {
-        alert("logged in successfully");
-        //enter the chats screen (until it will be ready - enters login screen) 
-    }
-}
-

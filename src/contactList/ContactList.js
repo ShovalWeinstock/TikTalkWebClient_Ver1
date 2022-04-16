@@ -1,5 +1,6 @@
-import ContactItem from "../contactItem/ContactItem";
-function ContactListReasults({ contactlis }) {
+import ContactItem from "../users/ContactItem";
+
+function ContactList({ contactlis }) {
     
     const contactList = contactlis.map((cont, key) => {
         return <ContactItem {...cont} key={key} />
@@ -10,4 +11,4 @@ function ContactListReasults({ contactlis }) {
       </div>
     )
 }
-export default ContactListReasults;
+export default ContactList;
