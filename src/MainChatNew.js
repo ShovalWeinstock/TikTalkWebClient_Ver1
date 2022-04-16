@@ -125,7 +125,7 @@ function MainChatNew(props) {
                 </div>
                 {/*Conversation*/}
                 <div className='chat'>
-                    <MsgLoopCreator msglis={messageList} />
+                    <MsgLoopCreator msglis={messageList[0].chats} />
                 </div>
                 {/*Input area*/}
                 <div className='chatInput'>
