@@ -6,6 +6,8 @@ import contacts from './users/Contacts';
 import ContactList from './contactList/ContactList';
 import Search from './search/Search';
 import TypingArea from './typingArea/TypingArea';
+import messages from './message/Messages';
+import MsgLoopCreator from './message/MsgLoopCreator';
 
 
 // class MainChatNew extends React.Component {
@@ -73,15 +75,19 @@ import TypingArea from './typingArea/TypingArea';
 
 function MainChatNew(props) {
 
-    const [contactList, setContactList] = useState(contacts);
-
+    
     const doSearch = function (q) {
         console.log(q);
         setContactList(contacts.filter((contacts) => contacts.name.includes(q)))
     }
-
+    
+    const [contactList, setContactList] = useState(contacts);
     const refreshList = function () {
         setContactList([...contacts]);
+    }
+    const [messageList, setMessageList] = useState(messages);
+    const refreshMsgList = function () {
+        setMessageList([...messages]);
     }
 
     return (
@@ -115,10 +121,13 @@ function MainChatNew(props) {
                 </div>
                 {/*Conversation*/}
                 <div className='chat'>
+                    <MsgLoopCreator msglis={messageList} />
                 </div>
                 {/*Input area*/}
                 <div className='chatInput'>
-                    <TypingArea />
+                    <TypingArea refreshChat={refreshMsgList}/>
+                    {/* <button type="button" class="btn btn-outline-secondary" id="sendMsgBtn">Send</button> */}
+
                 </div>
 
             </div>
