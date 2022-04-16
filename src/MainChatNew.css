@@ -21,7 +21,7 @@
     width: 1000px;
     max-width: 100%;
     height: calc(100vh - 40px);
-    background: #dce8d2;
+    background: #DEDEDE;
     display: flex;
     border-radius: 5px;
     border: solid 1px #ccc;
@@ -33,7 +33,7 @@
 .leftSide {
     position: relative;
     flex: 30%;
-    background: #dce8d2;
+    background: #DEDEDE;
     border-right: #a8ccc3;
     /* border-radius: 5px; */
 }

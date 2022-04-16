@@ -2,10 +2,8 @@ import { type } from "@testing-library/user-event/dist/type";
 import Message from "./Message";
 
 
-
-function MsgLoopCreator({ msglis }) {
-    console.log( msglis instanceof Array);
-    console.log(msglis);
+//create the chat messages
+function MsgLoopCreator({msglis}) {
     const messageList = msglis.map((msg, key) => {
         return <Message {...msg} key={key} />
     });

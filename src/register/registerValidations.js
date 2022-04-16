@@ -1,9 +1,6 @@
 import users from "../users/users"
-
-
 // import defauldImg from './defaultImage.jpg';
 // import { useNavigate } from 'react-router-dom';
-
 
 //registration:
 
@@ -15,7 +12,7 @@ const isValidPassword = (password) => {
     return false;
 }
 
-const usernameExists = (username) => {
+export const usernameExists = (username) => {
     var usernameExists = false;
     const usersNum = users.length;
     var i;

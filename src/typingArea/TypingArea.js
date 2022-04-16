@@ -1,14 +1,28 @@
-import addMsg from '../MainChat'
-function TypingArea({ doSearch }) {
+import { useState } from "react";
+import messages from '../message/Messages';
+
+// hole bottom bar in the chat section. refreshChat arg will reload the message list
+function TypingArea({refreshChat}) {
+
+    const [currentMsg, setCurrentMsg] = useState('');
+// Add a new message
+  const addMsg = () => {
+      var newMgs = {msgStyle1:"media w-50 ml-auto mb-3", msgStyle2:"bg-primary rounded py-2 px-3 mb-2", msgStyle3:"text-small mb-0 text-white",  content: currentMsg};
+      messages.push(newMgs);
+      // reload the message in the chat again
+      refreshChat();
+    }
+
 
     return (
         <div class="input-group">
 
             {/*Message typing area*/}
-            <input id="chatTypingArea" type="text" class="form-control" aria-label="Text input with segmented dropdown button"></input>
+            <input id="chatTypingArea" value={currentMsg} onChange={(e) => setCurrentMsg(e.target.value)}
+             type="text" class="form-control" aria-label="Text input with segmented dropdown button"></input>
 
             {/*"Send" button*/}
-            <button type="button" class="btn btn-outline-secondary" id="sendMsgBtn">Send</button>
+            <button type="button" class="btn btn-outline-secondary" id="sendMsgBtn" onClick={addMsg}>Send</button>
 
             {/*dropup*/}
             <div class="btn-group dropup">
