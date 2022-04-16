@@ -22,7 +22,7 @@ function AddContact({ refreshList }) {
       document.getElementById("addContactError").innerHTML = "Username doesn't exist";
     }
     else {
-      var newContact = { name: username, prevText: "", date: "24 dec" }
+      var newContact = {name1:username, pervWin:{ name: username, prevText: "", date: "24 dec" }}
       contacts.push(newContact);
       refreshList();
     }

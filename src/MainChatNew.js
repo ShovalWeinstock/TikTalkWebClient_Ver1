@@ -78,7 +78,7 @@ function MainChatNew(props) {
     
     const doSearch = function (q) {
         console.log(q);
-        setContactList(contacts.filter((contacts) => contacts.name.includes(q)))
+        setContactList(contacts.filter((contacts) => contacts.name1.includes(q)))
     }
     // state var for updating the list of contacts
     const [contactList, setContactList] = useState(contacts);

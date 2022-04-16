@@ -1,4 +1,5 @@
-function ContactItem({ name, prevText, date }) {
+// function ContactItem({ name, prevText, date }) {
+function ContactItem({ name1, prevWin }) {
     return (
 
         <div className="contact">
@@ -10,12 +11,12 @@ function ContactItem({ name, prevText, date }) {
             <div className="contactDetails">
 
                 <div className="contactItemHeader">
-                    <h6>{name}</h6>
-                    <p className="time">{date}</p>
+                    <h6>{name1}</h6>
+                    <p className="time">{prevWin.date}</p>
                 </div>
 
                 <div className="lastMessage">
-                    <p className="lastMessege">{prevText}</p>
+                    <p className="lastMessege">{prevWin.prevText}</p>
                 </div>
 
             </div>
