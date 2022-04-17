@@ -1,4 +1,6 @@
 import messages from "../message/Messages";
+export let CURRENT_CONTACT="Sam";
+
 // const contacts = [{name1:"Sam", prevWin : {name :"Sam", prevText:"hello", date: messages[messages.length -1].currTime}},
 const contacts = [{name1:"Sam", prevWin : {name :"Sam", prevText:"hello", date: "21 dec"}},
 {name1:"Sam", prevWin :{name:"Guy", prevText:"bbbbb", date: "24 dec"}},

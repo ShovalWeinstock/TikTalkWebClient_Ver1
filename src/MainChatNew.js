@@ -2,7 +2,7 @@ import './MainChatNew.css';
 import defauldImg from './defaultImage.jpg';
 import AddContact from './buttons/AddContact';
 import { useState } from 'react'
-import contacts from './users/Contacts';
+import contacts, { CURRENT_CONTACT } from './users/Contacts';
 import ContactList from './contactList/ContactList';
 import Search from './search/Search';
 import TypingArea from './typingArea/TypingArea';
@@ -72,7 +72,6 @@ import MsgLoopCreator from './message/MsgLoopCreator';
 //         );
 //     }
 // }
-
 function MainChatNew(props) {
 
     
@@ -93,6 +92,9 @@ function MainChatNew(props) {
     const refreshMsgList = function () {
         setMessageList([...messages]);
     }
+    // const [currContact, setCurrContact] = useState(CURRENT_CONTACT);
+    //get the chat coresponding the contact
+    const getCurrContactChat = messageList.find(({name})=>(name === CURRENT_CONTACT)).chats;
 
     return (
         <div className="container">
@@ -125,7 +127,7 @@ function MainChatNew(props) {
                 </div>
                 {/*Conversation*/}
                 <div className='chat'>
-                    <MsgLoopCreator msglis={messageList[0].chats} />
+                    <MsgLoopCreator msglis={getCurrContactChat} />
                 </div>
                 {/*Input area*/}
                 <div className='chatInput'>
