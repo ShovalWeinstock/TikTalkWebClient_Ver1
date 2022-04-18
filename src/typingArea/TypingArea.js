@@ -2,7 +2,7 @@ import { useState } from "react";
 import messages from '../message/Messages';
 
 // hole bottom bar in the chat section. refreshChat arg will reload the message list
-function TypingArea({refreshChat}) {
+function TypingArea({refreshChat,currChat}) {
 
     const [currentMsg, setCurrentMsg] = useState('');
 // Add a new message
@@ -11,7 +11,7 @@ function TypingArea({refreshChat}) {
     var date = currTime.getFullYear()+'-'+(currTime.getMonth()+1)+'-'+currTime.getDate();
     var time = currTime.getHours() + ":" + currTime.getMinutes();
     var newMgs = {msgStyle1:"media w-50 ml-auto mb-3", msgStyle2:"bg-primary rounded py-2 px-3 mb-2", msgStyle3:"text-small mb-0 text-white",  content: currentMsg, currTime: date+' | '+time};
-      messages[0].chats.push(newMgs);
+      currChat.push(newMgs);
       // reload the message in the chat again
       refreshChat();
     }

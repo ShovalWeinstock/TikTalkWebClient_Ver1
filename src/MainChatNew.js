@@ -2,7 +2,7 @@ import './MainChatNew.css';
 import defauldImg from './defaultImage.jpg';
 import AddContact from './buttons/AddContact';
 import { useState } from 'react'
-import contacts, { CURRENT_CONTACT } from './users/Contacts';
+import contacts, { CURRENT_CONTACT, setcontact } from './users/Contacts';
 import ContactList from './contactList/ContactList';
 import Search from './search/Search';
 import TypingArea from './typingArea/TypingArea';
@@ -72,6 +72,9 @@ import MsgLoopCreator from './message/MsgLoopCreator';
 //         );
 //     }
 // }
+
+
+
 function MainChatNew(props) {
 
     
@@ -92,9 +95,14 @@ function MainChatNew(props) {
     const refreshMsgList = function () {
         setMessageList([...messages]);
     }
-    // const [currContact, setCurrContact] = useState(CURRENT_CONTACT);
+    const [currContactChat, setCurrContactChat] = useState(messageList.find(({name})=>(name === CURRENT_CONTACT)).chats);
     //get the chat coresponding the contact
-    const getCurrContactChat = messageList.find(({name})=>(name === CURRENT_CONTACT)).chats;
+    const refreshchat = function (n) {
+        setcontact(n);
+        setCurrContactChat(messageList.find(({name})=>(name === CURRENT_CONTACT)).chats);
+        // setContactList([...contacts]);
+
+    }
 
     return (
         <div className="container">
@@ -109,11 +117,12 @@ function MainChatNew(props) {
                 </div>
 
                 {/*Search Chat*/}
+                <pre>{JSON.stringify(CURRENT_CONTACT,undefined,2)}</pre>
                 <Search doSearch={doSearch} />
 
                 {/*Chats list*/}
                 <div className="chatsList">
-                    <ContactList contactlis={contactList} />
+                    <ContactList contactlis={contactList} onclick={refreshchat}/>
                 </div>
             </div>
 
@@ -127,11 +136,11 @@ function MainChatNew(props) {
                 </div>
                 {/*Conversation*/}
                 <div className='chat'>
-                    <MsgLoopCreator msglis={getCurrContactChat} />
+                    <MsgLoopCreator msglis={currContactChat} />
                 </div>
                 {/*Input area*/}
                 <div className='chatInput'>
-                    <TypingArea refreshChat={refreshMsgList}/>
+                    <TypingArea refreshChat={refreshMsgList} currChat={currContactChat}/>
                 </div>
 
             </div>
