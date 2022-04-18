@@ -6,6 +6,8 @@ import contacts from './users/Contacts';
 import ContactList from './contactList/ContactList';
 import Search from './search/Search';
 import TypingArea from './typingArea/TypingArea';
+import messages from "./message/Messages";
+import MsgLoopCreator from './message/MsgLoopCreator';
 
 
 // class MainChatNew extends React.Component {
@@ -72,16 +74,36 @@ import TypingArea from './typingArea/TypingArea';
 // }
 
 function MainChatNew(props) {
-
+    
+    const [messageList, setMessageList] = useState(messages);
     const [contactList, setContactList] = useState(contacts);
+    const [currentChat, setCurrrentChat] = useState(messageList.find(({ name }) => (name === "Sam")).chats);
+    const [currentContact, setCurrrentContact] = useState('');
+
+
+
+    //when called, only reload the messages in the chat
+    const refreshMsgList = function () {
+        setMessageList([...messages]);
+    }
+    // const doSearch = function (q) {
+    //     console.log(q);
+    //     setContactList(contacts.filter((contacts) => contacts.name.includes(q)))
+    // }
 
     const doSearch = function (q) {
         console.log(q);
-        setContactList(contacts.filter((contacts) => contacts.name.includes(q)))
+        setContactList(contacts.filter((contacts) => contacts.name1.includes(q)))
     }
 
     const refreshList = function () {
         setContactList([...contacts]);
+    }
+
+    const refreshCurrentChat = function (contactName) {
+        // setCurrrentChat(messages.find(({ name }) => (name === contactName)).chats);
+        setCurrrentChat(messageList.find(({ name }) => (name === contactName)).chats);
+        setCurrrentContact(contactName);
     }
 
     return (
@@ -101,7 +123,7 @@ function MainChatNew(props) {
 
                 {/*Chats list*/}
                 <div className="chatsList">
-                    <ContactList contactlis={contactList} />
+                    <ContactList contactlis={contactList} onContactClick={refreshCurrentChat} />
                 </div>
             </div>
 
@@ -111,19 +133,23 @@ function MainChatNew(props) {
                     <div className='profilePicture'>
                         <img src={defauldImg} className="cover"></img>
                     </div>
-                    <h6>Contact name</h6>
+                    <h6>{currentContact}</h6>
                 </div>
                 {/*Conversation*/}
                 <div className='chat'>
+                    <MsgLoopCreator msglis={currentChat} />
                 </div>
                 {/*Input area*/}
                 <div className='chatInput'>
-                    <TypingArea />
+                    <TypingArea refreshChat={refreshMsgList} currChat={currentChat} />
                 </div>
 
             </div>
         </div>
     );
 }
+
+// <MsgLoopCreator msglis={currentChat} />
+
 
 export default MainChatNew;
