@@ -74,19 +74,17 @@ import MsgLoopCreator from './messages/MsgLoopCreator';
 // }
 
 function MainChatNew(props) {
-    
+
     const [messageList, setMessageList] = useState(messages);
     const [contactList, setContactList] = useState(contacts);
-    const [currentChat, setCurrrentChat] = useState(messageList.find(({ name }) => (name === "Sam")).chats);
     const [currentContact, setCurrrentContact] = useState('');
-
-
+    const [currentChat, setCurrrentChat] = useState(messageList.find(({ name }) => (name === currentContact)).chats);
 
     //when called, only reload the messages in the chat
     const refreshMsgList = function () {
         setMessageList([...messages]);
     }
-    
+
     const doSearch = function (q) {
         console.log(q);
         setContactList(contacts.filter((contacts) => contacts.name.includes(q)))
@@ -103,8 +101,8 @@ function MainChatNew(props) {
 
     const refreshCurrentChat = function (contactName) {
         // setCurrrentChat(messages.find(({ name }) => (name === contactName)).chats);
-        setCurrrentChat(messageList.find(({ name }) => (name === contactName)).chats);
         setCurrrentContact(contactName);
+        setCurrrentChat(messageList.find(({ name }) => (name === contactName)).chats);
     }
 
     return (

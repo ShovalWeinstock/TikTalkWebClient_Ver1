@@ -58,18 +58,19 @@ import { useState } from "react";
 import messages from '../messages/Chats';
 
 // hole bottom bar in the chat section. refreshChat arg will reload the message list
-function TypingArea({refreshChat}) {
+function TypingArea({ refreshChat, currChat }) {
 
     const [currentMsg, setCurrentMsg] = useState('');
-// Add a new message
-  const addMsg = () => {
-    var currTime = new Date();
-    var date = currTime.getFullYear()+'-'+(currTime.getMonth()+1)+'-'+currTime.getDate();
-    var time = currTime.getHours() + ":" + currTime.getMinutes();
-    var newMgs = {msgStyle1:"media w-50 ml-auto mb-3", msgStyle2:"bg-primary rounded py-2 px-3 mb-2", msgStyle3:"text-small mb-0 text-white",  content: currentMsg, currTime: date+' | '+time};
-      messages[0].chats.push(newMgs);
-      // reload the message in the chat again
-      refreshChat();
+
+    // Add a new message
+    const addMsg = () => {
+        var currTime = new Date();
+        var date = currTime.getFullYear() + '-' + (currTime.getMonth() + 1) + '-' + currTime.getDate();
+        var time = currTime.getHours() + ":" + currTime.getMinutes();
+        var newMgs = { msgStyle1: "media w-50 ml-auto mb-3", msgStyle2: "bg-primary rounded py-2 px-3 mb-2", msgStyle3: "text-small mb-0 text-white", content: currentMsg, currTime: date + ' | ' + time };
+        currChat.push(newMgs);
+        // reload the message in the chat again
+        refreshChat();
     }
 
 
@@ -78,7 +79,7 @@ function TypingArea({refreshChat}) {
 
             {/*Message typing area*/}
             <input id="chatTypingArea" value={currentMsg} onChange={(e) => setCurrentMsg(e.target.value)}
-             type="text" class="form-control" aria-label="Text input with segmented dropdown button"></input>
+                type="text" class="form-control" aria-label="Text input with segmented dropdown button"></input>
 
             {/*"Send" button*/}
             <button type="button" class="btn btn-outline-secondary" id="sendMsgBtn" onClick={addMsg}>Send</button>
