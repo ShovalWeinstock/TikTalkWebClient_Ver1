@@ -24,32 +24,28 @@
 // }
 // export default ContactItem;
 
-
-
-
-
-function ContactItem({ name1, prevWin, onclick }) {
+function ContactItem({ picture, name, date, lastMsg, onclick }) {
 
     const handleClick = function () {
-        onclick(name1);
+        onclick(name);
     }
 
     return (
         <div className="contact" onClick={handleClick}>
 
             <div className='profilePicture'>
-                <img src="https://bootstrapious.com/i/snippets/sn-chat/avatar.svg" className="cover"></img>
+                <img src={picture} className="cover"></img>
             </div>
 
             <div className="contactDetails">
 
                 <div className="contactItemHeader">
-                    <h6>{name1}</h6>
-                    <p className="time">{prevWin.date}</p>
+                    <h6>{name}</h6>
+                    <p className="time">{date}</p>
                 </div>
 
                 <div className="lastMessage">
-                    <p className="lastMessege">{prevWin.prevText}</p>
+                    <p className="lastMessege">{lastMsg}</p>
                 </div>
 
             </div>

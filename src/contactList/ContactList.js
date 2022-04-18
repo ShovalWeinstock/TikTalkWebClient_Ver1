@@ -1,4 +1,4 @@
-import ContactItem from "../users/ContactItem";
+import ContactItem from "../users&contacts/ContactItem";
 
 function ContactList({ contactlis, onContactClick }) {
     

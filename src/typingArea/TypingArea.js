@@ -55,7 +55,7 @@
 
 
 import { useState } from "react";
-import messages from '../message/Messages';
+import messages from '../messages/Chats';
 
 // hole bottom bar in the chat section. refreshChat arg will reload the message list
 function TypingArea({refreshChat}) {

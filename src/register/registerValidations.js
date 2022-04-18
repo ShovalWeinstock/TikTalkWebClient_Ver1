@@ -1,4 +1,4 @@
-import users from "../users/users"
+import users from "../users&contacts/users"
 // import defauldImg from './defaultImage.jpg';
 // import { useNavigate } from 'react-router-dom';
 

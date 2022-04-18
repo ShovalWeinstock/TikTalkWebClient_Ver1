@@ -2,12 +2,12 @@ import './MainChatNew.css';
 import defauldImg from './defaultImage.jpg';
 import AddContact from './buttons/AddContact';
 import { useState } from 'react'
-import contacts from './users/Contacts';
+import contacts from './users&contacts/Contacts';
 import ContactList from './contactList/ContactList';
 import Search from './search/Search';
 import TypingArea from './typingArea/TypingArea';
-import messages from "./message/Messages";
-import MsgLoopCreator from './message/MsgLoopCreator';
+import messages from "./messages/Chats";
+import MsgLoopCreator from './messages/MsgLoopCreator';
 
 
 // class MainChatNew extends React.Component {
@@ -86,15 +86,16 @@ function MainChatNew(props) {
     const refreshMsgList = function () {
         setMessageList([...messages]);
     }
-    // const doSearch = function (q) {
-    //     console.log(q);
-    //     setContactList(contacts.filter((contacts) => contacts.name.includes(q)))
-    // }
-
+    
     const doSearch = function (q) {
         console.log(q);
-        setContactList(contacts.filter((contacts) => contacts.name1.includes(q)))
+        setContactList(contacts.filter((contacts) => contacts.name.includes(q)))
     }
+
+    // const doSearch = function (q) {
+    //     console.log(q);
+    //     setContactList(contacts.filter((contacts) => contacts.name1.includes(q)))
+    // }
 
     const refreshList = function () {
         setContactList([...contacts]);

@@ -1,6 +1,8 @@
 import { useState } from "react";
-import {usernameExists} from "../register/registerValidations"
-import contacts from "../users/Contacts";
+import { usernameExists } from "../register/registerValidations"
+import contacts from "../users&contacts/Contacts";
+import users from "../users&contacts/users"
+
 //import contactList from "../contactList/ContactList"
 
 function AddContact({ refreshList }) {
@@ -15,19 +17,39 @@ function AddContact({ refreshList }) {
     setUsername("")
   }
 
-  // Add a new contact
-  const addCont = (e) => {
-    // If the user doesn't exsit
-    if (!usernameExists(username)) {
+  // // Add a new contact
+  // const addCont = (e) => {
+  //   // If the user doesn't exsit
+  //   if (!usernameExists(username)) {
+  //     document.getElementById("addContactError").innerHTML = "Username doesn't exist";
+  //   }
+  //   else {
+  //     // var newContact = { name: username, prevText: "", date: "24 dec" }
+  //     var newContact = {name: username, prevMsg: "", date: "" };
+  //     contacts.push(newContact);
+  //     refreshList();
+  //   }
+
+  // }
+
+  const addCont = () => {
+    var found = false;
+    const usersNum = users.length;
+    var i;
+    for (i = 0; i < usersNum; i++) {
+      if (users[i].username == username) {
+        found = true;
+        var newContact = { picture: users[i].profilePic, name: username, prevMsg: "", date: "" };
+        contacts.push(newContact);
+        refreshList();
+        break;
+      }
+    }
+    if (!found) {
       document.getElementById("addContactError").innerHTML = "Username doesn't exist";
     }
-    else {
-      // var newContact = { name: username, prevText: "", date: "24 dec" }
-      var newContact ={name1:username, pervWin:{ name: username, prevText: "", date: "24 dec" }}
-      contacts.push(newContact);
-      refreshList();
-    }
   }
+
 
   return (
     <span>
