@@ -45,4 +45,3 @@ function Message({ content, currTime, sentBy }) {
 export default Message;
 
 // {msgStyle1, msgStyle2, msgStyle3, content, currTime}
-
