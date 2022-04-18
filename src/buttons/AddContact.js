@@ -1,7 +1,9 @@
 import { useState } from "react";
+import chats from "../messages/Chats";
 import { usernameExists } from "../register/registerValidations"
 import contacts from "../users&contacts/Contacts";
 import users from "../users&contacts/users"
+import messages from "../messages/Chats";
 
 //import contactList from "../contactList/ContactList"
 
@@ -41,6 +43,7 @@ function AddContact({ refreshList }) {
         found = true;
         var newContact = { picture: users[i].profilePic, name: username, prevMsg: "", date: "" };
         contacts.push(newContact);
+        messages.push({name: username, chats: []});
         refreshList();
         break;
       }
