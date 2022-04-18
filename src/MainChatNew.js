@@ -77,8 +77,8 @@ function MainChatNew(props) {
 
     const [messageList, setMessageList] = useState(messages);
     const [contactList, setContactList] = useState(contacts);
-    const [currentContact, setCurrrentContact] = useState('');
-    const [currentChat, setCurrrentChat] = useState(messageList.find(({ name }) => (name === currentContact)).chats);
+    const [currentContact, setCurrrentContact] = useState({picture: defauldImg, name:"", prevText:"", date: ""});
+    const [currentChat, setCurrrentChat] = useState(messageList.find(({ name }) => (name === currentContact.name)).chats);
 
     //when called, only reload the messages in the chat
     const refreshMsgList = function () {
@@ -99,10 +99,10 @@ function MainChatNew(props) {
         setContactList([...contacts]);
     }
 
-    const refreshCurrentChat = function (contactName) {
+    const refreshCurrentChat = function (contact) {
         // setCurrrentChat(messages.find(({ name }) => (name === contactName)).chats);
-        setCurrrentContact(contactName);
-        setCurrrentChat(messageList.find(({ name }) => (name === contactName)).chats);
+        setCurrrentContact(contact);
+        setCurrrentChat(messageList.find(({ name }) => (name === contact.name)).chats);
     }
 
     return (
@@ -130,9 +130,9 @@ function MainChatNew(props) {
             <div className="rightSide">
                 <div className='header'>
                     <div className='profilePicture'>
-                        <img src={defauldImg} className="cover"></img>
+                        <img src={currentContact.picture} className="cover"></img>
                     </div>
-                    <h6>{currentContact}</h6>
+                    <h6>{currentContact.name}</h6>
                 </div>
                 {/*Conversation*/}
                 <div className='chat'>

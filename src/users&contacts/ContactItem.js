@@ -24,10 +24,10 @@
 // }
 // export default ContactItem;
 
-function ContactItem({ picture, name, date, lastMsg, onclick }) {
+function ContactItem({ picture, name, date, prevText, onclick }) {
 
     const handleClick = function () {
-        onclick(name);
+        onclick({picture: picture, name: name, prevText: prevText, date: date});
     }
 
     return (
@@ -45,7 +45,7 @@ function ContactItem({ picture, name, date, lastMsg, onclick }) {
                 </div>
 
                 <div className="lastMessage">
-                    <p className="lastMessege">{lastMsg}</p>
+                    <p className="lastMessege">{prevText}</p>
                 </div>
 
             </div>

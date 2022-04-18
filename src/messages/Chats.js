@@ -23,6 +23,24 @@ const messages = [
    },
 
    {
+      name: "Gil", chats: [{ sentBy: "sentByOther", content: "Hi", currTime: "2022-4-16 | 19:18" },
+      { sentBy: "sentByOther", content: "Whats up?", currTime: "2022-4-16 | 19:18" }
+      ]
+   },
+
+   {
+      name: "Shir", chats: [{ sentBy: "sentByOther", content: "Hi", currTime: "2022-4-16 | 19:18" },
+      { sentBy: "sentByOther", content: "Whats up?", currTime: "2022-4-16 | 19:18" }
+      ]
+   },
+
+   {
+      name: "Maya", chats: [{ sentBy: "sentByOther", content: "Hi", currTime: "2022-4-16 | 19:18" },
+      { sentBy: "sentByOther", content: "Whats up?", currTime: "2022-4-16 | 19:18" }
+      ]
+   },
+
+   {
       name: "Dan", chats: [{ sentBy: "sentByOther", content: "Hey", currTime: "2022-4-16 | 19:18" },
       { sentBy: "sentByOther", content: "How are you?", currTime: "2022-4-16 | 19:18" }
       ]

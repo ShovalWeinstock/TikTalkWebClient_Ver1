@@ -10,9 +10,12 @@
 
 // const contacts = [{name1:"Sam", prevWin : {name :"Sam", prevText:"hello", date: messages[messages.length -1].currTime}},
 import defauldImg from '../defaultImage.jpg';
-
+import avocado from '../avocado.jpg';
 
 const contacts = [{picture: defauldImg, name:"Sam", prevText:"hello", date: "21 dec"},
-                  {picture: defauldImg, name:"Dan", prevText: "whats up?", date: "12 dec"}]
+                  {picture: avocado, name:"Dan", prevText: "whats up?", date: "12 dec"},
+                  {picture: defauldImg, name:"Gil", prevText:"hello", date: "21 dec"},
+                  {picture: defauldImg, name:"Maya", prevText: "whats up?", date: "12 dec"},
+                  {picture: avocado, name:"Shir", prevText: "whats up?", date: "12 dec"}]
 
 export default contacts;
