@@ -1,5 +1,5 @@
 import MainChatNew from "../MainChatNew";
-import users from "../users/users"
+import users from "../users&contacts/users"
 
 /*Validate the login input: Check that the username exists, and that the password is correct*/
 const isValidLoginInfo = (username, password) => {

@@ -1,9 +1,9 @@
-import ContactItem from "../users/ContactItem";
+import ContactItem from "../users&contacts/ContactItem";
 
-function ContactList({ contactlis }) {
+function ContactList({ contactlis, onContactClick }) {
     
     const contactList = contactlis.map((cont, key) => {
-        return <ContactItem {...cont} key={key} />
+        return <ContactItem {...cont} key={key} onclick={onContactClick}/>
     });
     return (
         <div className="list-group rounded-0">
