@@ -2,11 +2,7 @@ import './MainChatNew.css';
 import defauldImg from './defaultImage.jpg';
 import AddContact from './buttons/AddContact';
 import { useState } from 'react'
-<<<<<<< HEAD
-import contacts, { CURRENT_CONTACT, setcontact } from './users/Contacts';
-=======
 import contacts from './users&contacts/Contacts';
->>>>>>> fb654ef90540dbbaca31cceba69fa754eb971207
 import ContactList from './contactList/ContactList';
 import Search from './search/Search';
 import TypingArea from './typingArea/TypingArea';
@@ -91,7 +87,7 @@ function MainChatNew(props) {
     
     const doSearch = function (q) {
         console.log(q);
-        setContactList(contacts.filter((contacts) => contacts.name1.includes(q)))
+        setContactList(contacts.filter((contacts) => contacts.name.includes(q)))
     }
 
     // const doSearch = function (q) {
@@ -126,7 +122,7 @@ function MainChatNew(props) {
                 </div>
 
                 {/*Search Chat*/}
-                <pre>{JSON.stringify(CURRENT_CONTACT,undefined,2)}</pre>
+                {/* <pre>{JSON.stringify(CURRENT_CONTACT,undefined,2)}</pre> */}
                 <Search doSearch={doSearch} />
 
                 {/*Chats list*/}
