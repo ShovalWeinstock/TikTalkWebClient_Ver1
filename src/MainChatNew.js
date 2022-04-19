@@ -131,11 +131,7 @@ function MainChatNew(props) {
 
                 {/*Chats list*/}
                 <div className="chatsList">
-<<<<<<< HEAD
-                    <ContactList contactlis={contactList} onclick={refreshchat}/>
-=======
                     <ContactList contactlis={contactList} onContactClick={refreshCurrentChat} />
->>>>>>> fb654ef90540dbbaca31cceba69fa754eb971207
                 </div>
             </div>
 
@@ -149,19 +145,11 @@ function MainChatNew(props) {
                 </div>
                 {/*Conversation*/}
                 <div className='chat'>
-<<<<<<< HEAD
-                    <MsgLoopCreator msglis={currContactChat} />
-                </div>
-                {/*Input area*/}
-                <div className='chatInput'>
-                    <TypingArea refreshChat={refreshMsgList} currChat={currContactChat}/>
-=======
                     <MsgLoopCreator msglis={currentChat} />
                 </div>
                 {/*Input area*/}
                 <div className='chatInput'>
                     <TypingArea refreshChat={refreshMsgList} currChat={currentChat} />
->>>>>>> fb654ef90540dbbaca31cceba69fa754eb971207
                 </div>
 
             </div>
