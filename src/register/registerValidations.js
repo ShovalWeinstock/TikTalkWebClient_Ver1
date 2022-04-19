@@ -59,13 +59,14 @@ export const register = (username, nickName, password, confirmation, profilePic)
     }
     // the info is valid. create the user:
     if (validInfo) {
-        alert("registration completed");
         if (nickName == "") {
             nickName = username;
         }
         // addUser(username, nickName, password, profilePic);
         const newUser = { username: username, nickName: nickName, password: password, profilePic: profilePic };
         users.push(newUser);
-        //enter the chats screen (until it will be ready - enters login screen) 
+        //enter the chats screen (until it will be ready - enters login screen)
+        return newUser
     }
+    return false
 }
