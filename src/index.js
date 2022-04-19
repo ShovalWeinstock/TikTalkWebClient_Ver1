@@ -7,7 +7,7 @@ import Login from './login/Login';
 
 ReactDOM.render(
   <React.StrictMode>
-    <MainChatNew/>
+    <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );
