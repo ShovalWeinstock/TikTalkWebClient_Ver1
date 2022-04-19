@@ -3,7 +3,7 @@ import { useState } from "react";
 import { register } from './registerValidations.js';
 import defauldImg from '../defaultImage.jpg';
 
-function Registration({changeRegState, changeLoggedInUser}) {
+function Registration() {
 
     const [username, setUsername] = useState('');
     const [nickname, setNickname] = useState('');
@@ -26,11 +26,7 @@ function Registration({changeRegState, changeLoggedInUser}) {
     const handleSubmit = (e) => {
         clearErrors();
         e.preventDefault();
-        var newUser = register(username, nickname, password, confirmation, profilePic);
-        if (newUser != null) {
-            changeRegState();
-            changeLoggedInUser(newUser);
-        }
+        register(username, nickname, password, confirmation, profilePic);
     }
 
     return (

@@ -4,13 +4,7 @@ import { useState } from 'react';
 import { login } from './loginValidations.js';
 import MainChatNew from '../MainChatNew';
 
-function Login({changeRegState, changeLoggedInUser}) {
-
-    // const helper = (user) => {
-    //     debugger
-    //     changeLoggedInUser(user)
-    //     changeRegState()
-    // }
+function Login() {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -22,10 +16,7 @@ function Login({changeRegState, changeLoggedInUser}) {
     const handleSubmit = (e) => {
         clearErrors();
         e.preventDefault();
-        var user = login(username, password);
-        if (user != null) {
-            changeLoggedInUser(user);
-        }
+        login(username, password);
     }
 
     return (
@@ -45,7 +36,7 @@ function Login({changeRegState, changeLoggedInUser}) {
                 <button type="Login" className="btn btn-primary">Submit</button>
                 <span id="notRegistered" className="form-text"> Not registered?</span>
                 <span>
-                    <a onClick={changeRegState} className="form-text"> Click here</a>
+                    <Link to="/register" className="form-text"> Click here</Link>
                 </span>
                 <span className="form-text"> to regiser</span>
                 <p id="loginError" className="errorMessege"></p>

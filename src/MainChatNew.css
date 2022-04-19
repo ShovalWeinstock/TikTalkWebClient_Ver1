@@ -217,37 +217,3 @@ h6 {
     background-color: #81a28b !important;
     border-color: #81a28b !important;
 }
-
-.chat {
-    position: relative;
-    overflow-y: auto;
-    height: calc(100% - 50px - 60px);
-}
-
-.sentByOther {
-    padding-top: 10px;
-    margin-left: auto; 
-    margin-right: 10px;
-}
-
-.sentByMe {
-    margin-left: 10px;
-}
-
-.msgBody{
-    margin-top: 10px;
-    padding-top: 10px;
-    position: relative;
-	max-width: 500px;
-	padding: 10px;
-	/* font-size: 1.25em; */
-	border-radius: 10px;
-}
-
-.sentByOther .msgBody{
-    background: #fff;
-}
-
-.sentByMe .msgBody{
-    background: #dce8d2;
-}

@@ -1,4 +1,4 @@
-import users from "../users&contacts/users"
+import users from "../users/users"
 // import defauldImg from './defaultImage.jpg';
 // import { useNavigate } from 'react-router-dom';
 
@@ -59,14 +59,13 @@ export const register = (username, nickName, password, confirmation, profilePic)
     }
     // the info is valid. create the user:
     if (validInfo) {
+        alert("registration completed");
         if (nickName == "") {
             nickName = username;
         }
         // addUser(username, nickName, password, profilePic);
         const newUser = { username: username, nickName: nickName, password: password, profilePic: profilePic };
         users.push(newUser);
-        //enter the chats screen (until it will be ready - enters login screen)
-        return newUser
+        //enter the chats screen (until it will be ready - enters login screen) 
     }
-    return false
 }

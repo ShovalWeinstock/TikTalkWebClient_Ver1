@@ -1,4 +1,4 @@
-function Message({msgStyle1, msgStyle2, msgStyle3, content, currTime}) {
+function Message({msgStyle1, msgStyle2, msgStyle3, content}) {
 
     return (
             <div className={msgStyle1}><img src="https://bootstrapious.com/i/snippets/sn-chat/avatar.svg"
@@ -7,11 +7,10 @@ function Message({msgStyle1, msgStyle2, msgStyle3, content, currTime}) {
                 <div className={msgStyle2}>
                   <p className={msgStyle3}>{content}</p>
                 </div>
-                <p className="small text-muted">{currTime}</p>
+                <p className="small text-muted">12:00 PM | Aug 13</p>
               </div>
             </div>
     )
 }
 export default Message;
 
-// {msgStyle1, msgStyle2, msgStyle3, content, currTime}
