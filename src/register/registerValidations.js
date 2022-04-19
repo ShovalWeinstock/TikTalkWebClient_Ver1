@@ -59,7 +59,6 @@ export const register = (username, nickName, password, confirmation, profilePic)
     }
     // the info is valid. create the user:
     if (validInfo) {
-        alert("registration completed");
         if (nickName == "") {
             nickName = username;
         }
