@@ -3,7 +3,8 @@ export let CURRENT_CONTACT="Sam";
 export function setcontact(n){
     CURRENT_CONTACT = n;
 }
-const contacts = [{name1:"Sam", prevWin : {name :"Sam", prevText: messages[0].chats[messages[0].chats.length -1].content, date: messages[0].chats[messages[0].chats.length -1].currTime}},
+var lastChat = messages[0].chats[messages[0].chats.length -1];
+const contacts = [{name1:"Sam", prevWin : {name :"Sam", prevText: lastChat.content, date: lastChat.currTime}},
 // const contacts = [{name1:"Sam", prevWin : {name :"Sam", prevText:"hello", date: "21 dec"}},
 {name1:"Guy", prevWin :{name:"Guy", prevText:"bbbbb", date: "24 dec"}},
 {name1:"Dan", prevWin : {name:"Dan", prevText:"aaaaa", date: "12 dec"}},
