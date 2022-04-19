@@ -2,12 +2,16 @@ import './MainChatNew.css';
 import defauldImg from './defaultImage.jpg';
 import AddContact from './buttons/AddContact';
 import { useState } from 'react'
+<<<<<<< HEAD
 import contacts, { CURRENT_CONTACT, setcontact } from './users/Contacts';
+=======
+import contacts from './users&contacts/Contacts';
+>>>>>>> fb654ef90540dbbaca31cceba69fa754eb971207
 import ContactList from './contactList/ContactList';
 import Search from './search/Search';
 import TypingArea from './typingArea/TypingArea';
-import messages from './message/Messages';
-import MsgLoopCreator from './message/MsgLoopCreator';
+import messages from "./messages/Chats";
+import MsgLoopCreator from './messages/MsgLoopCreator';
 
 
 // class MainChatNew extends React.Component {
@@ -77,31 +81,36 @@ import MsgLoopCreator from './message/MsgLoopCreator';
 
 function MainChatNew(props) {
 
+    // state var for updating the list of messages in the chat
+
+    const [messageList, setMessageList] = useState(messages);
+    const [contactList, setContactList] = useState(contacts);
+    const [currentContact, setCurrrentContact] = useState({picture: defauldImg, name:"", prevText:"", date: ""});
+    const [currentChat, setCurrrentChat] = useState(messageList.find(({ name }) => (name === currentContact.name)).chats);
+
     
     const doSearch = function (q) {
         console.log(q);
         setContactList(contacts.filter((contacts) => contacts.name1.includes(q)))
     }
-    // state var for updating the list of contacts
-    const [contactList, setContactList] = useState(contacts);
-    //when called, only reload the contacts list
+
+    // const doSearch = function (q) {
+        //     console.log(q);
+        //     setContactList(contacts.filter((contacts) => contacts.name1.includes(q)))
+        // }
+
     const refreshList = function () {
         setContactList([...contacts]);
     }
-    // state var for updating the list of messages in the chat
-
-    const [messageList, setMessageList] = useState(messages);
+    
     //when called, only reload the messages in the chat
     const refreshMsgList = function () {
         setMessageList([...messages]);
     }
-    const [currContactChat, setCurrContactChat] = useState(messageList.find(({name})=>(name === CURRENT_CONTACT)).chats);
-    //get the chat coresponding the contact
-    const refreshchat = function (n) {
-        setcontact(n);
-        setCurrContactChat(messageList.find(({name})=>(name === CURRENT_CONTACT)).chats);
-        // setContactList([...contacts]);
-
+    const refreshCurrentChat = function (contact) {
+        // setCurrrentChat(messages.find(({ name }) => (name === contactName)).chats);
+        setCurrrentContact(contact);
+        setCurrrentChat(messageList.find(({ name }) => (name === contact.name)).chats);
     }
 
     return (
@@ -122,7 +131,11 @@ function MainChatNew(props) {
 
                 {/*Chats list*/}
                 <div className="chatsList">
+<<<<<<< HEAD
                     <ContactList contactlis={contactList} onclick={refreshchat}/>
+=======
+                    <ContactList contactlis={contactList} onContactClick={refreshCurrentChat} />
+>>>>>>> fb654ef90540dbbaca31cceba69fa754eb971207
                 </div>
             </div>
 
@@ -130,22 +143,33 @@ function MainChatNew(props) {
             <div className="rightSide">
                 <div className='header'>
                     <div className='profilePicture'>
-                        <img src={defauldImg} className="cover"></img>
+                        <img src={currentContact.picture} className="cover"></img>
                     </div>
-                    <h6>Contact name</h6>
+                    <h6>{currentContact.name}</h6>
                 </div>
                 {/*Conversation*/}
                 <div className='chat'>
+<<<<<<< HEAD
                     <MsgLoopCreator msglis={currContactChat} />
                 </div>
                 {/*Input area*/}
                 <div className='chatInput'>
                     <TypingArea refreshChat={refreshMsgList} currChat={currContactChat}/>
+=======
+                    <MsgLoopCreator msglis={currentChat} />
+                </div>
+                {/*Input area*/}
+                <div className='chatInput'>
+                    <TypingArea refreshChat={refreshMsgList} currChat={currentChat} />
+>>>>>>> fb654ef90540dbbaca31cceba69fa754eb971207
                 </div>
 
             </div>
         </div>
     );
 }
+
+// <MsgLoopCreator msglis={currentChat} />
+
 
 export default MainChatNew;
