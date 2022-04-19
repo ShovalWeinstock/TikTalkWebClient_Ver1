@@ -122,12 +122,12 @@ function MainChatNew(props) {
                 </div>
 
                 {/*Search Chat*/}
-                {/* <pre>{JSON.stringify(CURRENT_CONTACT,undefined,2)}</pre> */}
                 <Search doSearch={doSearch} />
 
                 {/*Chats list*/}
                 <div className="chatsList">
                     <ContactList contactlis={contactList} onContactClick={refreshCurrentChat} />
+            {/* <pre>{JSON.stringify(contactList[0],undefined,2)}</pre> */}
                 </div>
             </div>
 
@@ -145,7 +145,7 @@ function MainChatNew(props) {
                 </div>
                 {/*Input area*/}
                 <div className='chatInput'>
-                    <TypingArea refreshChat={refreshMsgList} currChat={currentChat} />
+                    <TypingArea refreshChat={refreshMsgList} currChat={currentChat} refreshContactList={refreshList}/>
                 </div>
 
             </div>
