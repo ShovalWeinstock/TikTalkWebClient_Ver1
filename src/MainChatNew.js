@@ -75,32 +75,32 @@ import MsgLoopCreator from './messages/MsgLoopCreator';
 
 function MainChatNew(props) {
 
+    // state var for updating the list of messages in the chat
+
+    const [messageList, setMessageList] = useState(messages);
     const [contactList, setContactList] = useState(contacts);
     const [currentContact, setCurrrentContact] = useState({picture: defauldImg, name:"", prevText:"", date: ""});
     const [currentChat, setCurrrentChat] = useState(messageList.find(({ name }) => (name === currentContact.name)).chats);
 
-
+    
     const doSearch = function (q) {
         console.log(q);
         setContactList(contacts.filter((contacts) => contacts.name1.includes(q)))
     }
 
     // const doSearch = function (q) {
-    //     console.log(q);
-    //     setContactList(contacts.filter((contacts) => contacts.name1.includes(q)))
-    // }
+        //     console.log(q);
+        //     setContactList(contacts.filter((contacts) => contacts.name1.includes(q)))
+        // }
 
     const refreshList = function () {
         setContactList([...contacts]);
     }
-    // state var for updating the list of messages in the chat
-
-    const [messageList, setMessageList] = useState(messages);
+    
     //when called, only reload the messages in the chat
     const refreshMsgList = function () {
         setMessageList([...messages]);
     }
-
     const refreshCurrentChat = function (contact) {
         // setCurrrentChat(messages.find(({ name }) => (name === contactName)).chats);
         setCurrrentContact(contact);
