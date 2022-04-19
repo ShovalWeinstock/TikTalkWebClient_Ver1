@@ -111,7 +111,7 @@ function MainChatNew(props) {
             <div className="leftSide">
                 <div className='header'>
                     <div className='profilePicture'>
-                        <img src={props.user.username.profilePic} className="cover"></img>
+                        <img src={props.user.profilePic} className="cover"></img>
                     </div>
                     <h6>{props.user.username}</h6>
                     <AddContact refreshList={refreshList} />
