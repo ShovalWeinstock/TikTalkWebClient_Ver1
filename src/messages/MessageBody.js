@@ -1,3 +1,4 @@
+
 function MessageBody({ content, type }) {
     // image message
     if (type == "image") {

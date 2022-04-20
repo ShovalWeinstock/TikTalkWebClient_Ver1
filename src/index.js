@@ -11,7 +11,6 @@ import avocado from './avocado.jpg';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <MainChatNew user={{ username: "shoval", nickname: "shov", password: "12345678Aa", profilePic: avocado }} />  </React.StrictMode>,
   document.getElementById('root')
 );
