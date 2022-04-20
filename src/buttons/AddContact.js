@@ -43,7 +43,7 @@ function AddContact({ refreshList, refreshChatList }) {
         found = true;
         var newContact = { picture: users[i].profilePic, name: username, prevMsg: "", date: "" };
         contacts.push(newContact);
-        var placeholderChat = [{ sentBy: "sentByOther", content: "", currTime: "" }];
+        var placeholderChat = [{ type: "text", sentBy: "sentByOther", content: "", currTime: "" }];
         messages.push({name: username, chats: placeholderChat });
         refreshList();
         break;
