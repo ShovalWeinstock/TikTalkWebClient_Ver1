@@ -22,7 +22,6 @@ function MainChatNew(props) {
     }
 
     const doSearch = function (q) {
-        console.log(q);
         setContactList(contacts.filter((contacts) => contacts.name.includes(q)))
     }
 

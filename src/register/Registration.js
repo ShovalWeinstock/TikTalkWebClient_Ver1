@@ -19,7 +19,6 @@ function Registration({changeRegState, changeLoggedInUser}) {
 
     const uploadImg = (e) => {
         // e.preventDefault();
-        console.log(e.target.files);
         setProfilePic(URL.createObjectURL(e.target.files[0]));
     }
 
