@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -215,6 +216,8 @@ h6 {
 }
 
 .sentByMe {
+    padding-top: 10px;
+    margin-right: auto;
     margin-left: 10px;
 }
 
@@ -233,4 +236,9 @@ h6 {
 
 .sentByMe .msgBody{
     background: #dce8d2;
+}
+
+#imgMsg {
+    height: 300px;
+    width: 300px;
 }
