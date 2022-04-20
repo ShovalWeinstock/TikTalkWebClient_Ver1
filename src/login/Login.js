@@ -6,12 +6,6 @@ import MainChatNew from '../MainChatNew';
 
 function Login({changeRegState, changeLoggedInUser}) {
 
-    // const helper = (user) => {
-    //     debugger
-    //     changeLoggedInUser(user)
-    //     changeRegState()
-    // }
-
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 

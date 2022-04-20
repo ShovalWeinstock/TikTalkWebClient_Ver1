@@ -33,6 +33,11 @@
 
 function Message({ content, currTime, sentBy }) {
 
+  const sendAttachment = () => {
+    addMsg(type, attachment);
+    setTrigger(false);
+}
+
   return (
     <div className={(sentBy)+" "+"msg"}>
       <div className="msgBody">
