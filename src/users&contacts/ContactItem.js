@@ -24,11 +24,28 @@
 // }
 // export default ContactItem;
 
+import { useState } from 'react'
+
+
 function ContactItem({ picture, name, date, prevText, onclick, lastChat }) {
+
+
+    var message = (lastChat.type == "text"? lastChat.content : lastChat.type);
 
     const handleClick = function () {
         onclick({picture: picture, name: name, prevText: prevText, date: date});
     }
+
+    // const viewLastMsg = function () {
+    //     if(lastChat.type == "image" || lastChat.type == "video") {
+    //         return (lastChat.type);
+    //     }
+    //     else {
+    //         return (lastChat.content);
+    //     }
+    // }
+
+
     return (
         <div className="contact" onClick={handleClick}>
 
@@ -46,7 +63,7 @@ function ContactItem({ picture, name, date, prevText, onclick, lastChat }) {
 
                 <div className="lastMessage">
                     {/* the last msg in the chat */}
-                    <p className="lastMessege">{lastChat.content}</p>
+                    <p className="lastMessege">{message}</p>
                 </div>
 
             </div>
