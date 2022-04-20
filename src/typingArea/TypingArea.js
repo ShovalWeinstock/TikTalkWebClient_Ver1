@@ -55,6 +55,7 @@
 
 
 import { useState } from "react";
+import UploadPopup from "./UploadPopup";
 
 // hole bottom bar in the chat section. refreshChat arg will reload the message list
 function TypingArea({ refreshChat, currChat, refreshContactList }) {
@@ -62,11 +63,11 @@ function TypingArea({ refreshChat, currChat, refreshContactList }) {
     const [currentMsg, setCurrentMsg] = useState('');
 
     // Add a new message
-    const addMsg = () => {
+    const addMsg = (type, contant) => {
         var currTime = new Date();
         var date = currTime.getFullYear() + '-' + (currTime.getMonth() + 1) + '-' + currTime.getDate();
         var time = currTime.getHours() + ":" + currTime.getMinutes();
-        var newMgs = { sentBy: "sentByMe", content: currentMsg, currTime: date + ' | ' + time };
+        var newMgs = { type: type, sentBy: "sentByMe", content: contant, currTime: date + ' | ' + time };
         currChat.push(newMgs);
         // reload the message in the chat again
         refreshChat();
@@ -84,11 +85,11 @@ function TypingArea({ refreshChat, currChat, refreshContactList }) {
         <div class="input-group">
 
             {/*Message typing area*/}
-            <input id="chatTypingArea" value={currentMsg} onChange={(e) => setCurrentMsg(e.target.value)}
+            <input id="chatTypingArea" value={currentMsg} onChange={(e) => setCurrentMsg(e.target.value, currentMsg)}
                 type="text" class="form-control" aria-label="Text input with segmented dropdown button"></input>
 
             {/*"Send" button*/}
-            <button type="button" class="btn btn-outline-secondary" id="sendMsgBtn" onClick={addMsg}>Send</button>
+            <button type="button" class="btn btn-outline-secondary" id="sendMsgBtn" onClick={() => {addMsg("text")}}>Send</button>
 
             {/*dropup*/}
             <div class="btn-group dropup">
@@ -106,6 +107,7 @@ function TypingArea({ refreshChat, currChat, refreshContactList }) {
                             </svg>
                             Image
                         </a>
+                        <UploadPopup trigger={true} type="image" addMsg={addMsg} />
                     </li>
                     {/*Send video*/}
                     <li>

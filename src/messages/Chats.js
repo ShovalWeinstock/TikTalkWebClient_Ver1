@@ -17,26 +17,26 @@ const messages = [
    },
 
    {
-      name: "Sam", chats: [{ sentBy: "sentByOther", content: "Hi", currTime: "2022-4-16 | 19:18" },
-      { sentBy: "sentByOther", content: "Whats up?", currTime: "2022-4-16 | 19:18" }
+      name: "Sam", chats: [{ type: "text", sentBy: "sentByOther", content: "Hi", currTime: "2022-4-16 | 19:18" },
+      { type: "text", sentBy: "sentByOther", content: "Whats up?", currTime: "2022-4-16 | 19:18" }
       ]
    },
 
    {
-      name: "Gil", chats: [{ sentBy: "sentByOther", content: "Hi", currTime: "2022-4-16 | 19:18" },
-      { sentBy: "sentByOther", content: "Whats up?", currTime: "2022-4-16 | 19:18" }
+      name: "Gil", chats: [{ type: "text", sentBy: "sentByOther", content: "Hi", currTime: "2022-4-16 | 19:18" },
+      { type: "text", sentBy: "sentByOther", content: "Whats up?", currTime: "2022-4-16 | 19:18" }
       ]
    },
 
    {
-      name: "Shir", chats: [{ sentBy: "sentByOther", content: "Hi", currTime: "2022-4-16 | 19:18" },
-      { sentBy: "sentByOther", content: "Whats up?", currTime: "2022-4-16 | 19:18" }
+      name: "Shir", chats: [{ type: "text", sentBy: "sentByOther", content: "Hi", currTime: "2022-4-16 | 19:18" },
+      { type: "text", sentBy: "sentByOther", content: "Whats up?", currTime: "2022-4-16 | 19:18" }
       ]
    },
 
    {
-      name: "Maya", chats: [{ sentBy: "sentByOther", content: "Hi", currTime: "2022-4-16 | 19:18" },
-      { sentBy: "sentByOther", content: "Whats up?", currTime: "2022-4-16 | 19:18" }
+      name: "Maya", chats: [{ type: "text", sentBy: "sentByOther", content: "Hi", currTime: "2022-4-16 | 19:18" },
+      { type: "text", sentBy: "sentByOther", content: "Whats up?", currTime: "2022-4-16 | 19:18" }
       ]
    },
 
