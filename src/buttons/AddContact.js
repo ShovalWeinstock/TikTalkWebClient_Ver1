@@ -7,7 +7,7 @@ import messages from "../messages/Chats";
 
 //import contactList from "../contactList/ContactList"
 
-function AddContact({ refreshList }) {
+function AddContact({ refreshList, refreshChatList }) {
 
   const [username, setUsername] = useState('');
 
@@ -43,11 +43,13 @@ function AddContact({ refreshList }) {
         found = true;
         var newContact = { picture: users[i].profilePic, name: username, prevMsg: "", date: "" };
         contacts.push(newContact);
-        messages.push({name: username, chats: []});
+        var placeholderChat = [{ sentBy: "sentByOther", content: "", currTime: "" }];
+        messages.push({name: username, chats: placeholderChat });
         refreshList();
         break;
       }
     }
+    refreshChatList();
     if (!found) {
       document.getElementById("addContactError").innerHTML = "Username doesn't exist";
     }

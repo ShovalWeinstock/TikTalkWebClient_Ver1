@@ -73,6 +73,8 @@ import MsgLoopCreator from './messages/MsgLoopCreator';
 //     }
 // }
 
+
+
 function MainChatNew(props) {
 
     const [messageList, setMessageList] = useState(messages);
@@ -90,21 +92,16 @@ function MainChatNew(props) {
         setContactList(contacts.filter((contacts) => contacts.name.includes(q)))
     }
 
-    // const doSearch = function (q) {
-    //     console.log(q);
-    //     setContactList(contacts.filter((contacts) => contacts.name1.includes(q)))
-    // }
-
-    const refreshList = function () {
+    const refreshContactList = function () {
         setContactList([...contacts]);
     }
-
+    
     const refreshCurrentChat = function (contact) {
         // setCurrrentChat(messages.find(({ name }) => (name === contactName)).chats);
         setCurrrentContact(contact);
         setCurrrentChat(messageList.find(({ name }) => (name === contact.name)).chats);
     }
-
+    
     return (
         <div className="container">
 
@@ -114,7 +111,7 @@ function MainChatNew(props) {
                         <img src={props.user.profilePic} className="cover"></img>
                     </div>
                     <h6>{props.user.username}</h6>
-                    <AddContact refreshList={refreshList} />
+                    <AddContact refreshList={refreshContactList} refreshChatList={refreshMsgList}/>
                 </div>
 
                 {/*Search Chat*/}
@@ -122,7 +119,9 @@ function MainChatNew(props) {
 
                 {/*Chats list*/}
                 <div className="chatsList">
-                    <ContactList contactlis={contactList} onContactClick={refreshCurrentChat} />
+                    {/* the list of contacts gets the current state of contacts and messages */}
+                    <ContactList contactlis={contactList} onContactClick={refreshCurrentChat} updatedMsg={messageList} />
+            <pre>{JSON.stringify(messageList,undefined,2)}</pre>
                 </div>
             </div>
 
@@ -140,7 +139,8 @@ function MainChatNew(props) {
                 </div>
                 {/*Input area*/}
                 <div className='chatInput'>
-                    <TypingArea refreshChat={refreshMsgList} currChat={currentChat} />
+                    {/* to activate the refreshing functions when sending a message */}
+                    <TypingArea refreshChat={refreshMsgList} currChat={currentChat} refreshContactList={refreshContactList}/>
                 </div>
 
             </div>

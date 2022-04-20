@@ -57,7 +57,7 @@
 import { useState } from "react";
 
 // hole bottom bar in the chat section. refreshChat arg will reload the message list
-function TypingArea({ refreshChat, currChat }) {
+function TypingArea({ refreshChat, currChat, refreshContactList }) {
 
     const [currentMsg, setCurrentMsg] = useState('');
 
@@ -70,6 +70,7 @@ function TypingArea({ refreshChat, currChat }) {
         currChat.push(newMgs);
         // reload the message in the chat again
         refreshChat();
+        refreshContactList();
         setCurrentMsg("");
     }
 

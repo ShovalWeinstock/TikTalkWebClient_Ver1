@@ -24,12 +24,11 @@
 // }
 // export default ContactItem;
 
-function ContactItem({ picture, name, date, prevText, onclick }) {
+function ContactItem({ picture, name, date, prevText, onclick, lastChat }) {
 
     const handleClick = function () {
         onclick({picture: picture, name: name, prevText: prevText, date: date});
     }
-
     return (
         <div className="contact" onClick={handleClick}>
 
@@ -41,11 +40,13 @@ function ContactItem({ picture, name, date, prevText, onclick }) {
 
                 <div className="contactItemHeader">
                     <h6>{name}</h6>
-                    <p className="time">{date}</p>
+                    {/* current time of the last chat */}
+                    <p className="time">{lastChat.currTime}</p>
                 </div>
 
                 <div className="lastMessage">
-                    <p className="lastMessege">{prevText}</p>
+                    {/* the last msg in the chat */}
+                    <p className="lastMessege">{lastChat.content}</p>
                 </div>
 
             </div>
