@@ -13,9 +13,6 @@
 // export default contacts;
 
 
-
-
-
 import defauldImg from '../defaultImage.jpg';
 import avocado from '../avocado.jpg';
 import grandma from '../grandma.png'
