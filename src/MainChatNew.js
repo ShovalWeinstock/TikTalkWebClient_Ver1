@@ -1,5 +1,4 @@
 import './MainChatNew.css';
-import defauldImg from './defaultImage.jpg';
 import AddContact from './buttons/AddContact';
 import { useState } from 'react'
 import contacts from './users&contacts/Contacts';
@@ -14,7 +13,7 @@ function MainChatNew(props) {
     const [messageList, setMessageList] = useState(messages);
     const [contactList, setContactList] = useState(contacts);
     const [currentContact, setCurrrentContact] = useState(contacts[0]);
-    const [currentChat, setCurrrentChat] = useState(messageList.find(({ name }) => (name === currentContact.name)).chats);
+    const [currentChat, setCurrrentChat] = useState(messageList.find(({ nickname }) => (currentContact.nickname === nickname)).chats);
 
     //when called, only reload the messages in the chat
     const refreshMsgList = function () {
@@ -22,7 +21,7 @@ function MainChatNew(props) {
     }
 
     const doSearch = function (q) {
-        setContactList(contacts.filter((contacts) => contacts.name.includes(q)))
+        setContactList(contacts.filter((contacts) => contacts.nickname.includes(q)))
     }
 
     const refreshContactList = function () {
@@ -31,7 +30,7 @@ function MainChatNew(props) {
 
     const refreshCurrentChat = function (contact) {
         setCurrrentContact(contact);
-        setCurrrentChat(messageList.find(({ name }) => (name === contact.name)).chats);
+        setCurrrentChat(messageList.find(({ nickname }) => (contact.nickname === nickname)).chats);
     }
 
 
@@ -44,7 +43,7 @@ function MainChatNew(props) {
                     <div className='profilePicture'>
                         <img src={currentContact.picture} className="cover"></img>
                     </div>
-                    <h6>{currentContact.name}</h6>
+                    <h6>{currentContact.nickname}</h6>
                 </div>
                 {/*Conversation*/}
                 <div className='chat'>
@@ -85,9 +84,5 @@ function MainChatNew(props) {
         </div>
     );
 }
-
-
-// <MsgLoopCreator msglis={currentChat} />
-
 
 export default MainChatNew;

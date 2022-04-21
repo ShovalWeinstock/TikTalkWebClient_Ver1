@@ -1,6 +1,5 @@
 import Message from "./Message";
 
-
 //create the chat messages
 function MsgLoopCreator({msglis}) {
     const messageList = msglis.map((msg, key) => {
