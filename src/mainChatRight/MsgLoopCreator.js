@@ -1,5 +1,4 @@
-import Message from "./Message";
-
+import Message from "../messages/Message";
 
 //create the chat messages
 function MsgLoopCreator({msglis}) {

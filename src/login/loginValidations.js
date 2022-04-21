@@ -1,19 +1,4 @@
-import MainChatNew from "../MainChatNew";
-import users from "../users&contacts/users"
-
-/*Validate the login input: Check that the username exists, and that the password is correct*/
-// const isValidLoginInfo = (username, password) => {
-//     var validInfo = false;
-//     const usersNum = users.length;
-//     var i;
-//     for (i = 0; i < usersNum; i++) {
-//         if (users[i].username == username && users[i].password == password) {
-//             validInfo = true;
-//         }
-//         break;
-//     }
-//     return validInfo;
-// }
+import users from "../dataBase/users"
 
 const findUser = (username, password) => {
     var user = null
