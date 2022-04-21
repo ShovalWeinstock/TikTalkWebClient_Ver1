@@ -1,4 +1,4 @@
-import users from "../users&contacts/users"
+import users from "../dataBase/users"
 
 const isValidPassword = (password) => {
     const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;

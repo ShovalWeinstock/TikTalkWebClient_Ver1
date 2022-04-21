@@ -1,4 +1,4 @@
-import users from "../users&contacts/users"
+import users from "../dataBase/users"
 
 const findUser = (username, password) => {
     var user = null

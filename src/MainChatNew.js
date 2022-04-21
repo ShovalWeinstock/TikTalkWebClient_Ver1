@@ -1,12 +1,12 @@
 import './MainChatNew.css';
-import AddContact from './buttons/AddContact';
+import AddContact from './mainChatLeft/AddContact';
 import { useState } from 'react'
-import contacts from './users&contacts/Contacts';
-import ContactList from './contactList/ContactList';
-import Search from './search/Search';
-import TypingArea from './typingArea/TypingArea';
-import messages from "./messages/Chats";
-import MsgLoopCreator from './messages/MsgLoopCreator';
+import contacts from './dataBase/Contacts';
+import ContactList from './mainChatLeft/ContactList';
+import Search from './mainChatLeft/Search';
+import TypingArea from './mainChatRight/TypingArea';
+import messages from "./dataBase/Chats";
+import MsgLoopCreator from './mainChatRight/MsgLoopCreator';
 
 function MainChatNew(props) {
 

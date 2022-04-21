@@ -1,7 +1,7 @@
 import { useState } from "react";
-import contacts from "../users&contacts/Contacts";
-import users from "../users&contacts/users"
-import messages from "../messages/Chats";
+import contacts from "../dataBase/Contacts";
+import users from "../dataBase/users"
+import messages from "../dataBase/Chats";
 
 function AddContact({ refreshList, refreshChatList }) {
 

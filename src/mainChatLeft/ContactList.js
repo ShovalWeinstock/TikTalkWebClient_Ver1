@@ -1,4 +1,4 @@
-import ContactItem from "../users&contacts/ContactItem";
+import ContactItem from "./ContactItem";
 
 function ContactList({ contactlis, onContactClick, updatedMsg }) {
     const contactList = contactlis.map((cont, key) => {
