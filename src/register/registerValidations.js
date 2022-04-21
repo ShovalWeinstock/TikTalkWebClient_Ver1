@@ -62,5 +62,5 @@ export const register = (username, nickName, password, confirmation, profilePic)
         //enter the chats screen (until it will be ready - enters login screen)
         return newUser
     }
-    return false
+    return null
 }
