@@ -19,7 +19,6 @@ function Registration({changeRegState, changeLoggedInUser}) {
 
     const uploadImg = (e) => {
         // e.preventDefault();
-        console.log(e.target.files);
         setProfilePic(URL.createObjectURL(e.target.files[0]));
     }
 
@@ -28,6 +27,7 @@ function Registration({changeRegState, changeLoggedInUser}) {
         e.preventDefault();
         var newUser = register(username, nickname, password, confirmation, profilePic);
         if (newUser != null) {
+            debugger
             changeRegState();
             changeLoggedInUser(newUser);
         }

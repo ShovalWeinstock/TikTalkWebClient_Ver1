@@ -1,13 +1,7 @@
 import { useState } from "react";
-import chats from "../messages/Chats";
-import { usernameExists } from "../register/registerValidations"
-import contacts from "../users&contacts/Contacts";
-import users from "../users&contacts/users"
-import messages from "../messages/Chats";
-import $ from 'jquery'; 
-
-
-//import contactList from "../contactList/ContactList"
+import contacts from "../dataBase/Contacts";
+import users from "../dataBase/users"
+import messages from "../dataBase/Chats";
 
 function AddContact({ refreshList, refreshChatList }) {
 
@@ -21,21 +15,6 @@ function AddContact({ refreshList, refreshChatList }) {
     setUsername("")
   }
 
-  // // Add a new contact
-  // const addCont = (e) => {
-  //   // If the user doesn't exsit
-  //   if (!usernameExists(username)) {
-  //     document.getElementById("addContactError").innerHTML = "Username doesn't exist";
-  //   }
-  //   else {
-  //     // var newContact = { name: username, prevText: "", date: "24 dec" }
-  //     var newContact = {name: username, prevMsg: "", date: "" };
-  //     contacts.push(newContact);
-  //     refreshList();
-  //   }
-
-  // }
-
   const addCont = () => {
     var found = false;
     const usersNum = users.length;
@@ -43,10 +22,10 @@ function AddContact({ refreshList, refreshChatList }) {
     for (i = 0; i < usersNum; i++) {
       if (users[i].username == username) {
         found = true;
-        var newContact = { picture: users[i].profilePic, name: username, prevMsg: "", date: "" };
+        var newContact = { picture: users[i].profilePic, nickname: users[i].nickname };
         contacts.push(newContact);
-        var placeholderChat = [{ sentBy: "sentByOther", content: "", currTime: "" }];
-        messages.push({name: username, chats: placeholderChat });
+        var placeholderChat = [{ type: "text", sentBy: "sentByOther", content: "", currTime: "" }];
+        messages.push({nickname: users[i].nickname, chats: placeholderChat });
         refreshList();
         window.$('#staticBackdrop').modal('hide')
         break;

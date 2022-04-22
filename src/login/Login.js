@@ -1,16 +1,8 @@
 import '../LoginAndRegister.css';
-import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { login } from './loginValidations.js';
-import MainChatNew from '../MainChatNew';
 
 function Login({changeRegState, changeLoggedInUser}) {
-
-    // const helper = (user) => {
-    //     debugger
-    //     changeLoggedInUser(user)
-    //     changeRegState()
-    // }
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');

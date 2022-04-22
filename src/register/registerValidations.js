@@ -1,6 +1,4 @@
-import users from "../users&contacts/users"
-// import defauldImg from './defaultImage.jpg';
-// import { useNavigate } from 'react-router-dom';
+import users from "../dataBase/users"
 
 const isValidPassword = (password) => {
     const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
@@ -23,10 +21,6 @@ export const usernameExists = (username) => {
     return usernameExists;
 }
 
-// const addUser = (username, nickName, password, profilePic) => {
-//     const newUser = { username: username, nickName: nickName, password: password, profilePic: profilePic};
-//     users.push(newUser);
-// }
 
 export const register = (username, nickName, password, confirmation, profilePic) => {
     var validInfo = true;
@@ -68,5 +62,5 @@ export const register = (username, nickName, password, confirmation, profilePic)
         //enter the chats screen (until it will be ready - enters login screen)
         return newUser
     }
-    return false
+    return null
 }
