@@ -4,6 +4,8 @@ import { usernameExists } from "../register/registerValidations"
 import contacts from "../users&contacts/Contacts";
 import users from "../users&contacts/users"
 import messages from "../messages/Chats";
+import $ from 'jquery'; 
+
 
 //import contactList from "../contactList/ContactList"
 
@@ -46,6 +48,7 @@ function AddContact({ refreshList, refreshChatList }) {
         var placeholderChat = [{ sentBy: "sentByOther", content: "", currTime: "" }];
         messages.push({name: username, chats: placeholderChat });
         refreshList();
+        window.$('#staticBackdrop').modal('hide')
         break;
       }
     }
