@@ -1,15 +1,13 @@
 import { useState } from "react";
 import "./UploadPopup.css";
+// import "../audioRecorder/audioTry"
 
 function RecordPopup({ trigger, type, setTrigger, addMsg }) {
-
-    //const [startOrStop, setStartOrStop] = useState("Record");
 
     const [attachment, setAttachment] = useState('');
 
     const sendAttachment = () => {
         addMsg(type, attachment);
-        // addMsg("text", "hello");
         // setTrigger(false);
     }
 
@@ -27,16 +25,12 @@ function RecordPopup({ trigger, type, setTrigger, addMsg }) {
                 if (recorder.state == 'inactive') {
                     // blob obj holds the audio obj
                     var blob = new Blob(items, { type: 'audio/webm' });
-                    // var recording = document.getElementById('recording');
-                    // var mainaudio = document.createElement('audio');
-                    // mainaudio.setAttribute('controls', 'controls');
-                    // mainaudio.setAttribute('src', URL.createObjectURL(blob));
-                    // mainaudio.setAttribute('type', 'video.webm');
-                    // recording.appendChild(mainaudio);
                     setAttachment(URL.createObjectURL(blob));
                 }
             }
-            recorder.start(100);
+            recorder.start();
+            // sendAttachment();
+            // recorder.stop();
             setTimeout( () => { recorder.stop(); sendAttachment();}, 3000);
         })
     }
@@ -56,7 +50,6 @@ function RecordPopup({ trigger, type, setTrigger, addMsg }) {
                                     <div className="mb-3">
                                         <div class="center">
                                             <button id="recordBtn" type="button" className="btn btn-success" onClick={startRecord}>Record</button>
-                                            <div id="recording" />
                                         </div>
                                     </div>
                                 </form>

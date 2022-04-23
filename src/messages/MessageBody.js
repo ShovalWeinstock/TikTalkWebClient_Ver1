@@ -15,9 +15,11 @@ function MessageBody({ content, type }) {
         )
     }
     else if (type == "audio") {
+        return (
         <audio controls>
             <source src={content} type='video/webm' />
         </audio>
+        )
     }
     // text message
     return (<p>{content}</p>);
