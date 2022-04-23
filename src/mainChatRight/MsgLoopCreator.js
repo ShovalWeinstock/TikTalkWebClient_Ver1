@@ -8,6 +8,7 @@ function MsgLoopCreator({msglis}) {
             return <Message {...msg} key={key} />
         }
     });
+
     return (
         <div className="list-group rounded-0">
         {messageList}
