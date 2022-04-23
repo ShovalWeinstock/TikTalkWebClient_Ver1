@@ -5,20 +5,26 @@ import "./UploadPopup.css";
 function RecordPopup({ trigger, type, setTrigger, addMsg }) {
 
     const [attachment, setAttachment] = useState('');
+    var recorder;
 
     const sendAttachment = () => {
         addMsg(type, attachment);
         // setTrigger(false);
     }
+    
+    const stopRecording = () => {
+        recorder.stop();
+        sendAttachment();
+        setTrigger(false);
+    }
 
-    const startRecord = () => {
+    const startRecording = () => {
         var device = navigator.mediaDevices.getUserMedia({ audio: true });
         //container for the data objects
         var items = [];
         //fill the stream with data
         device.then((stream) => {
-            var recorder = new MediaRecorder(stream);
-
+            recorder = new MediaRecorder(stream);
             recorder.ondataavailable = (e) => {
                 items.push(e.data);
                 //create an audio player feature
@@ -28,10 +34,11 @@ function RecordPopup({ trigger, type, setTrigger, addMsg }) {
                     setAttachment(URL.createObjectURL(blob));
                 }
             }
+
             recorder.start();
-            // sendAttachment();
             // recorder.stop();
-            setTimeout( () => { recorder.stop(); sendAttachment();}, 3000);
+            // sendAttachment();
+            // setTimeout( () => { recorder.stop(); sendAttachment();}, 3000);
         })
     }
 
@@ -49,7 +56,8 @@ function RecordPopup({ trigger, type, setTrigger, addMsg }) {
                                 <form>
                                     <div className="mb-3">
                                         <div class="center">
-                                            <button id="recordBtn" type="button" className="btn btn-success" onClick={startRecord}>Record</button>
+                                            <button id="recordBtn" type="button" className="btn btn-success" onClick={startRecording}>Record</button>
+                                            <button id="recordBtn" type="button" className="btn btn-primary" onClick={stopRecording}>Stop</button>
                                         </div>
                                     </div>
                                 </form>
