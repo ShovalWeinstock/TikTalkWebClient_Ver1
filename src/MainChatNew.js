@@ -12,8 +12,8 @@ import AudioRecorder from './audioRecorder/AudioRecorder';
 function MainChatNew(props) {
 
     const [messageList, setMessageList] = useState(messages);
-    const [contactList, setContactList] = useState(contacts);
-    const [currentContact, setCurrrentContact] = useState(contacts[0]);
+    const [contactList, setContactList] = useState(contacts.find(({ name }) => (props.user.username === name)).cont);
+    const [currentContact, setCurrrentContact] = useState(contacts.find(({ name }) => (props.user.username === name)).cont[0]);
     const [currentChat, setCurrrentChat] = useState(messageList.find(({ nickname }) => (currentContact.nickname === nickname)).chats);
 
     //when called, only reload the messages in the chat
