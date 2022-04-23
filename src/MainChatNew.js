@@ -7,7 +7,6 @@ import Search from './mainChatLeft/Search';
 import TypingArea from './mainChatRight/TypingArea';
 import messages from "./dataBase/Chats";
 import MsgLoopCreator from './mainChatRight/MsgLoopCreator';
-import AudioRecorder from './audioRecorder/AudioRecorder';
 
 function MainChatNew(props) {
 
@@ -67,7 +66,6 @@ function MainChatNew(props) {
                         <img src={props.user.profilePic} className="cover"></img>
                     </div>
                     <h6>{props.user.username}</h6>
-                    <AudioRecorder/>
                     <AddContact refreshList={refreshContactList} refreshChatList={refreshMsgList} />
                 </div>
 

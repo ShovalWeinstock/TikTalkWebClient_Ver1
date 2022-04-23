@@ -38,7 +38,6 @@ function UploadPopup({ trigger, type, setTrigger, addMsg }) {
                                 </form>
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={() => { setTrigger(false) }}>Close</button>
                                 <button type="button" className="btn btn-success" onClick={sendAttachment}>Send</button>
                             </div>
                         </div>
@@ -50,3 +49,7 @@ function UploadPopup({ trigger, type, setTrigger, addMsg }) {
     return ("");
 }
 export default UploadPopup;
+
+
+// <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={() => { setTrigger(false) }}>Close</button>
+

@@ -1,6 +1,7 @@
 
 function MessageBody({ content, type }) {
     // image message
+    debugger
     if (type == "image") {
         return (
             <img id="imgMsg" src={content} className="img"></img>);
@@ -12,7 +13,11 @@ function MessageBody({ content, type }) {
                 <source src={content} />
             </video>
         )
-
+    }
+    else if (type == "audio") {
+        <audio controls>
+            <source src={content} type='video/webm' />
+        </audio>
     }
     // text message
     return (<p>{content}</p>);
