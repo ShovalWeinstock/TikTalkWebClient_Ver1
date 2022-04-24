@@ -1,7 +1,6 @@
 
 function MessageBody({ content, type }) {
     // image message
-    debugger
     if (type == "image") {
         return (
             <img id="imgMsg" src={content} className="img"></img>);
