@@ -3,7 +3,7 @@ import contacts from "../dataBase/Contacts";
 import users from "../dataBase/users"
 import messages from "../dataBase/Chats";
 
-function AddContact({ refreshList, refreshChatList }) {
+function AddContact({ refreshList, refreshChatList, usersContactList, usersMessageList}) {
 
   const [username, setUsername] = useState('');
 
@@ -23,9 +23,9 @@ function AddContact({ refreshList, refreshChatList }) {
       if (users[i].username == username) {
         found = true;
         var newContact = { picture: users[i].profilePic, nickname: users[i].nickname };
-        contacts.push(newContact);
+        usersContactList.push(newContact);
         var placeholderChat = [{ type: "text", sentBy: "sentByOther", content: "", currTime: "" }];
-        messages.push({nickname: users[i].nickname, chats: placeholderChat });
+        usersMessageList.push({nickname: users[i].nickname, chats: placeholderChat });
         refreshList();
         window.$('#staticBackdrop').modal('hide')
         break;

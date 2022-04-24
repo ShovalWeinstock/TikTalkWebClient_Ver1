@@ -16,7 +16,7 @@ const contacts = [{
     name: 'itamar', cont: [
         { picture: grandma, nickname: "grandma" },
         { picture: avocado, nickname: "Dan" },
-        { picture: defauldImg, nickname: "Gili" },
+        { picture: defauldImg, nickname: "Simi" },
         { picture: defauldImg, nickname: "Maya" },
         { picture: defauldImg, nickname: "Shir" }]
 }

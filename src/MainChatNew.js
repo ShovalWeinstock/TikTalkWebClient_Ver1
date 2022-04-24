@@ -11,14 +11,14 @@ import AudioRecorder from './audioRecorder/AudioRecorder';
 
 function MainChatNew(props) {
 
-    const [messageList, setMessageList] = useState(messages);
+    const [messageList, setMessageList] = useState(messages.find(({ user }) => (props.user.username === user)).usersChats);
     const [contactList, setContactList] = useState(contacts.find(({ name }) => (props.user.username === name)).cont);
-    const [currentContact, setCurrrentContact] = useState(contacts.find(({ name }) => (props.user.username === name)).cont[0]);
+    const [currentContact, setCurrrentContact] = useState(contactList[0]);
     const [currentChat, setCurrrentChat] = useState(messageList.find(({ nickname }) => (currentContact.nickname === nickname)).chats);
 
     //when called, only reload the messages in the chat
     const refreshMsgList = function () {
-        setMessageList([...messages]);
+        setMessageList([...messages.find(({ user }) => (props.user.username === user)).usersChats]);
     }
 
     const doSearch = function (q) {
@@ -26,7 +26,7 @@ function MainChatNew(props) {
     }
 
     const refreshContactList = function () {
-        setContactList([...contacts]);
+        setContactList(contacts.find(({ name }) => (props.user.username === name)).cont);
     }
 
     const refreshCurrentChat = function (contact) {
@@ -35,7 +35,7 @@ function MainChatNew(props) {
     }
 
 
-    var rightSide = (currentContact == contacts[0]) ?
+    var rightSide = (currentContact == contacts[0].cont[0]) ?
         <div className="rightSide" />
         :
         (
@@ -67,8 +67,8 @@ function MainChatNew(props) {
                         <img src={props.user.profilePic} className="cover"></img>
                     </div>
                     <h6>{props.user.username}</h6>
-                    <AudioRecorder/>
-                    <AddContact refreshList={refreshContactList} refreshChatList={refreshMsgList} />
+                    <AddContact refreshList={refreshContactList} refreshChatList={refreshMsgList}
+                     usersContactList={contactList} usersMessageList={messageList} />
                 </div>
 
                 {/*Search Chat*/}

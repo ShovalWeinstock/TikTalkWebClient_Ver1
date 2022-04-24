@@ -7,11 +7,13 @@ import Login from './login/Login';
 import avocado from './avocado.jpg';
 
 //<MainChatNew user={{ username: "shoval", nickname: "shov", password: "12345678Aa", profilePic: avocado }} />
+// { username: "itamar", nickname: "ita", password: "12345678Aa", profilePic: grandma }
 
 
 ReactDOM.render(
   <React.StrictMode>
-  <MainChatNew user={{ username: "shoval", nickname: "shov", password: "12345678Aa", profilePic: avocado }} />
+  {/* <MainChatNew user={{ username: "itamar", nickname: "ita", password: "12345678Aa", profilePic: avocado }} /> */}
+  <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );
