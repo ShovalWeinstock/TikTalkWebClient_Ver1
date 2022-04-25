@@ -27,7 +27,6 @@ function Registration({changeRegState, changeLoggedInUser}) {
         e.preventDefault();
         var newUser = register(username, nickname, password, confirmation, profilePic);
         if (newUser != null) {
-            debugger
             changeRegState();
             changeLoggedInUser(newUser);
         }

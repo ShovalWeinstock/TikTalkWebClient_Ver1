@@ -9,7 +9,6 @@ import messages from "./dataBase/Chats";
 import MsgLoopCreator from './mainChatRight/MsgLoopCreator';
 import defauldImg from './defaultImage.jpg';
 
-
 function MainChatNew(props) {
 
     var emptyContact = { picture: defauldImg, nickname: "" };
