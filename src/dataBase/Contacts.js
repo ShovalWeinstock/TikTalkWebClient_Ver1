@@ -3,7 +3,7 @@ import defauldImg from '../defaultImage.jpg';
 import avocado from '../avocado.jpg';
 import grandma from '../grandma.png'
 
-
+// list of contacts for each user
 const contacts = [{
     name: 'shoval', cont: [
         { picture: grandma, nickname: "grandma" },

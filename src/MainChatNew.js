@@ -13,9 +13,9 @@ import defauldImg from './defaultImage.jpg';
 function MainChatNew(props) {
 
     var emptyContact = { picture: defauldImg, nickname: "" };
-
+    var selectedContact = contacts.find(({ name }) => (props.user.username === name)).cont;
     const [messageList, setMessageList] = useState(messages.find(({ user }) => (props.user.username === user)).usersChats);
-    const [contactList, setContactList] = useState(contacts.find(({ name }) => (props.user.username === name)).cont);
+    const [contactList, setContactList] = useState(selectedContact);
     const [currentContact, setCurrrentContact] = useState(emptyContact);
     const [currentChat, setCurrrentChat] = useState([{ type: "text", sentBy: "sentByOther", content: "", currTime: "" }]);
 
@@ -25,11 +25,11 @@ function MainChatNew(props) {
     }
 
     const doSearch = function (q) {
-        setContactList(contacts.filter((contacts) => contacts.nickname.includes(q)))
+        setContactList(selectedContact.filter((contacts) => contacts.nickname.includes(q)))
     }
 
     const refreshContactList = function () {
-        setContactList(contacts.find(({ name }) => (props.user.username === name)).cont);
+        setContactList(selectedContact);
     }
 
     const refreshCurrentChat = function (contact) {

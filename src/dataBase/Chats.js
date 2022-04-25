@@ -1,7 +1,7 @@
 import mondayMorning from '../mondayMorning.jpeg'
 import shabbatShalom from '../shabbatShalom.mp4'
 
-
+//list of messages for each user
 const messages = [
    {
       user: "shoval", usersChats: [
