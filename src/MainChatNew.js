@@ -7,17 +7,20 @@ import Search from './mainChatLeft/Search';
 import TypingArea from './mainChatRight/TypingArea';
 import messages from "./dataBase/Chats";
 import MsgLoopCreator from './mainChatRight/MsgLoopCreator';
+import defauldImg from './defaultImage.jpg';
 
 function MainChatNew(props) {
 
-    const [messageList, setMessageList] = useState(messages);
-    const [contactList, setContactList] = useState(contacts);
-    const [currentContact, setCurrrentContact] = useState(contacts[0]);
-    const [currentChat, setCurrrentChat] = useState(messageList.find(({ nickname }) => (currentContact.nickname === nickname)).chats);
+    var emptyContact = { picture: defauldImg, nickname: "" };
+
+    const [messageList, setMessageList] = useState(messages.find(({ user }) => (props.user.username === user)).usersChats);
+    const [contactList, setContactList] = useState(contacts.find(({ name }) => (props.user.username === name)).cont);
+    const [currentContact, setCurrrentContact] = useState(emptyContact);
+    const [currentChat, setCurrrentChat] = useState([{ type: "text", sentBy: "sentByOther", content: "", currTime: "" }]);
 
     //when called, only reload the messages in the chat
     const refreshMsgList = function () {
-        setMessageList([...messages]);
+        setMessageList([...messages.find(({ user }) => (props.user.username === user)).usersChats]);
     }
 
     const doSearch = function (q) {
@@ -25,7 +28,7 @@ function MainChatNew(props) {
     }
 
     const refreshContactList = function () {
-        setContactList([...contacts]);
+        setContactList(contacts.find(({ name }) => (props.user.username === name)).cont);
     }
 
     const refreshCurrentChat = function (contact) {
@@ -34,7 +37,7 @@ function MainChatNew(props) {
     }
 
 
-    var rightSide = (currentContact == contacts[0]) ?
+    var rightSide = (currentContact == emptyContact) ?
         <div className="rightSide" />
         :
         (
@@ -66,7 +69,8 @@ function MainChatNew(props) {
                         <img src={props.user.profilePic} className="cover"></img>
                     </div>
                     <h6>{props.user.username}</h6>
-                    <AddContact refreshList={refreshContactList} refreshChatList={refreshMsgList} />
+                    <AddContact refreshList={refreshContactList} refreshChatList={refreshMsgList}
+                     usersContactList={contactList} usersMessageList={messageList} />
                 </div>
 
                 {/*Search Chat*/}
