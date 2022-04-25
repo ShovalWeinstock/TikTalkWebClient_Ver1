@@ -4,7 +4,7 @@ import RecordPopup from "./RecoredPopup"
 
 // bottom bar in the chat section. refreshChat arg will reload the chat
 function TypingArea({ refreshChat, currChat, refreshContactList }) {
-    // states for the 
+
     const [currentMsg, setCurrentMsg] = useState('');
     const [uploadImgPopup, setUploadImgPopup] = useState(false);
     const [uploadVidPopup, setUploadVidPopup] = useState(false);
@@ -13,11 +13,9 @@ function TypingArea({ refreshChat, currChat, refreshContactList }) {
     // Add a new message
     const addMsg = (type, content) => {
         if (content != "") {
-            //get the current time
             var currTime = new Date();
             var date = currTime.getFullYear() + '-' + (currTime.getMonth() + 1) + '-' + currTime.getDate();
             var time = currTime.getHours() + ":" + currTime.getMinutes();
-            //create a new msg
             var newMgs = { type: type, sentBy: "sentByMe", content: content, currTime: date + ' | ' + time };
             currChat.push(newMgs);
             // reload the message in the chat again
@@ -29,7 +27,7 @@ function TypingArea({ refreshChat, currChat, refreshContactList }) {
 
     return (
         <div className="input-group">
-            {/* pop up to add attachments */}
+
             <UploadPopup trigger={uploadImgPopup} setTrigger={setUploadImgPopup} type="image" addMsg={addMsg} />
             <UploadPopup trigger={uploadVidPopup} setTrigger={setUploadVidPopup} type="video" addMsg={addMsg} />
             <RecordPopup trigger={recordPopup} setTrigger={setRecordPopup} type="audio" addMsg={addMsg} />

@@ -1,9 +1,9 @@
 import { useRef } from 'react'
 
 function Search({ doSearch }) {
-    // holds the info from the search box
+
     const searchBox = useRef(null);
-    //send the value to the main chat
+
     const search = function () {
         doSearch(searchBox.current.value);
     }

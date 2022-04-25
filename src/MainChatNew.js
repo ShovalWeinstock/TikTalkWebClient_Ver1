@@ -1,4 +1,4 @@
-import './MainChat.css';
+import './MainChatNew.css';
 import AddContact from './mainChatLeft/AddContact';
 import { useState } from 'react'
 import contacts from './dataBase/Contacts';
@@ -7,44 +7,34 @@ import Search from './mainChatLeft/Search';
 import TypingArea from './mainChatRight/TypingArea';
 import messages from "./dataBase/Chats";
 import MsgLoopCreator from './mainChatRight/MsgLoopCreator';
-import defauldImg from './defaultImage.jpg';
 
-// main chate page
-function MainChat(props) {
-    //placeholder contact for the state
-    var emptyContact = { picture: defauldImg, nickname: "" };
-    //chats of user logged in
-    var selectedContact = contacts.find(({ name }) => (props.user.username === name)).cont;
-    // list of the messages of the user
-    const [messageList, setMessageList] = useState(messages.find(({ user }) => (props.user.username === user)).usersChats);
-    //list of the contacts of the user
-    const [contactList, setContactList] = useState(selectedContact);
-    // current contact on display
-    const [currentContact, setCurrrentContact] = useState(emptyContact);
-    // current chat on display
-    const [currentChat, setCurrrentChat] = useState([{ type: "text", sentBy: "sentByOther", content: "", currTime: "" }]);
+function MainChatNew(props) {
+
+    const [messageList, setMessageList] = useState(messages);
+    const [contactList, setContactList] = useState(contacts);
+    const [currentContact, setCurrrentContact] = useState(contacts[0]);
+    const [currentChat, setCurrrentChat] = useState(messageList.find(({ nickname }) => (currentContact.nickname === nickname)).chats);
 
     //when called, only reload the messages in the chat
     const refreshMsgList = function () {
-        setMessageList([...messages.find(({ user }) => (props.user.username === user)).usersChats]);
+        setMessageList([...messages]);
     }
-    // search func for the searchbox
+
     const doSearch = function (q) {
-        setContactList(selectedContact.filter((contacts) => contacts.nickname.includes(q)))
+        setContactList(contacts.filter((contacts) => contacts.nickname.includes(q)))
     }
 
     const refreshContactList = function () {
-        setContactList(selectedContact);
+        setContactList([...contacts]);
     }
 
     const refreshCurrentChat = function (contact) {
-        //update the contact for lates preview msg
         setCurrrentContact(contact);
         setCurrrentChat(messageList.find(({ nickname }) => (contact.nickname === nickname)).chats);
     }
 
 
-    var rightSide = (currentContact == emptyContact) ?
+    var rightSide = (currentContact == contacts[0]) ?
         <div className="rightSide" />
         :
         (
@@ -76,9 +66,7 @@ function MainChat(props) {
                         <img src={props.user.profilePic} className="cover"></img>
                     </div>
                     <h6>{props.user.username}</h6>
-                    {/* the contact btn gets the setters of the chat and contact to update them */}
-                    <AddContact refreshList={refreshContactList} refreshChatList={refreshMsgList}
-                     usersContactList={contactList} usersMessageList={messageList} />
+                    <AddContact refreshList={refreshContactList} refreshChatList={refreshMsgList} />
                 </div>
 
                 {/*Search Chat*/}
@@ -97,4 +85,4 @@ function MainChat(props) {
     );
 }
 
-export default MainChat;
+export default MainChatNew;

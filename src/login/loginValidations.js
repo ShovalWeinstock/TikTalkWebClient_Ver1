@@ -7,8 +7,8 @@ const findUser = (username, password) => {
     for (i = 0; i < usersNum; i++) {
         if (users[i].username == username && users[i].password == password) {
             user = users[i];
-            break;
         }
+        break;
     }
     return user;
 }

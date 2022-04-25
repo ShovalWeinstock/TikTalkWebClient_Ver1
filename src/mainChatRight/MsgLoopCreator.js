@@ -1,5 +1,5 @@
 import Message from "../messages/Message";
-// import { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 
 //create the chat messages
@@ -11,13 +11,14 @@ function MsgLoopCreator({ msglis }) {
         }
     });
 
-    // const dummy = useRef();
+    const dummy = useRef();
 
-    // useEffect(() => { dummy.current.scrollIntoView({ behavior: 'smooth' }); });
+    useEffect(() => { dummy.current.scrollIntoView({ behavior: 'smooth' }); });
 
     return (
         <div className="list-group rounded-0">
             {messageList}
+            <div ref={dummy}></div>
         </div>
     )
 }

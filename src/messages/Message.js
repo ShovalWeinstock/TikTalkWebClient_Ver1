@@ -1,5 +1,5 @@
 import MessageBody from "./MessageBody";
-// represent UI message in the caht
+
 function Message({ type, content, currTime, sentBy }) {
 
   return (

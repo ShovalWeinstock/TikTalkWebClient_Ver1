@@ -3,43 +3,34 @@ import contacts from "../dataBase/Contacts";
 import users from "../dataBase/users"
 import messages from "../dataBase/Chats";
 
-//add contact botton 
-function AddContact({ refreshList, refreshChatList, usersContactList, usersMessageList}) {
-  // holds the username entered
+function AddContact({ refreshList, refreshChatList }) {
+
   const [username, setUsername] = useState('');
-  // on add contact click 
+
   const handleClick = (e) => {
-    // prevent the page from refreshing
     e.preventDefault();
     // Clear errors
     document.getElementById("addContactError").innerHTML = "";
     // Clear input
-    setUsername("");
+    setUsername("")
   }
 
   const addCont = () => {
     var found = false;
     const usersNum = users.length;
     var i;
-    // go through each contact and compare it to the one we try to add
     for (i = 0; i < usersNum; i++) {
       if (users[i].username == username) {
         found = true;
-        //create a new contact
         var newContact = { picture: users[i].profilePic, nickname: users[i].nickname };
-        //add it to the list
-        usersContactList.push(newContact);
-        // add a placeholder chat adn add it to the messages list of the user
+        contacts.push(newContact);
         var placeholderChat = [{ type: "text", sentBy: "sentByOther", content: "", currTime: "" }];
-        usersMessageList.push({nickname: users[i].nickname, chats: placeholderChat });
-        //refresh contact list
+        messages.push({nickname: users[i].nickname, chats: placeholderChat });
         refreshList();
-        //remove the modal
         window.$('#staticBackdrop').modal('hide')
         break;
       }
     }
-    //refresh the chat list
     refreshChatList();
     if (!found) {
       document.getElementById("addContactError").innerHTML = "Username doesn't exist";

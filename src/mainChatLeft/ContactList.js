@@ -1,7 +1,6 @@
 import ContactItem from "./ContactItem";
-// represents the UI list of contacts
+
 function ContactList({ contactlis, onContactClick, updatedMsg }) {
-    //fill each contact item with the information from the contact list
     const contactList = contactlis.map((cont, key) => {
         //extract the chats of the current contact
         var updatedChats = updatedMsg.find(({ nickname }) => (cont.nickname === nickname)).chats;
