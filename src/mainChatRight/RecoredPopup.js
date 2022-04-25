@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 function RecordPopup({ trigger, type, setTrigger, addMsg }) {
+
+    const [startOrStop, setStartOrStop] = useState('start');
 
     var audioRecorder = {
 
@@ -104,15 +108,13 @@ function RecordPopup({ trigger, type, setTrigger, addMsg }) {
             });
     }
 
-
-    function StopRecording() {
+    function stopRecording() {
         //stop the recording using the audio recording API
         audioRecorder.stop()
             .then(audioAsblob => { //stopping makes promise resolves to the blob file of the recorded audio
-                //Do something with the recorded audio
+                //send message
                 addMsg(type, URL.createObjectURL(audioAsblob));
-                
-                //...
+          
             })
             .catch(error => {
                 //Error handling structure
@@ -126,6 +128,17 @@ function RecordPopup({ trigger, type, setTrigger, addMsg }) {
 
             });
             setTrigger(false);
+    }
+
+    const handleClick = () => {
+        if (startOrStop == 'start') {
+            startRecording();
+            setStartOrStop('stop');
+        }
+        else {
+            stopRecording();
+            setStartOrStop('start');
+        }
     }
 
     if (trigger) {
@@ -142,8 +155,10 @@ function RecordPopup({ trigger, type, setTrigger, addMsg }) {
                                 <form>
                                     <div className="mb-3">
                                         <div className="center">
-                                            <button id="recordBtn" type="button" className="btn btn-success" onClick={startRecording}>Record</button>
-                                            <button id="recordBtn" type="button" className="btn btn-primary" onClick={StopRecording}>Stop</button>
+                                            {/*<button id="recordBtn" type="button" className="btn btn-success" onClick={startRecording}>Record</button>*/}
+                                            {/*<button id="recordBtn" type="button" className="btn btn-primary" onClick={stopRecording}>Stop</button>*/}
+                                            <button id="recordBtn" type="button" className="btn btn-success" onClick={handleClick}>{startOrStop}</button>
+
                                         </div>
                                     </div>
                                 </form>
