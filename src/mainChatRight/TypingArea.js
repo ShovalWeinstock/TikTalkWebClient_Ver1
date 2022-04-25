@@ -1,7 +1,6 @@
 import { useState } from "react";
 import UploadPopup from "./UploadPopup";
 import RecordPopup from "./RecoredPopup"
-import Audio from '../audioRecorder/audioTry';
 
 // bottom bar in the chat section. refreshChat arg will reload the chat
 function TypingArea({ refreshChat, currChat, refreshContactList }) {
