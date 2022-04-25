@@ -2,7 +2,12 @@ function ContactItem({ picture, nickname, onclick, lastChat }) {
 
 
     var message = (lastChat.type == "text"? lastChat.content : lastChat.type);
-
+    var msgShortnen = function(msg){
+        if (message.length > 20){
+            msg = msg.slice(0,19) + " ...";
+        }
+        return msg;
+    }
     const handleClick = function () {
         onclick({picture: picture, nickname: nickname});
     }
@@ -24,7 +29,7 @@ function ContactItem({ picture, nickname, onclick, lastChat }) {
 
                 <div className="lastMessage">
                     {/* the last msg in the chat */}
-                    <p className="lastMessege">{message}</p>
+                    <p className="lastMessege">{msgShortnen(message)}</p>
                 </div>
 
             </div>
