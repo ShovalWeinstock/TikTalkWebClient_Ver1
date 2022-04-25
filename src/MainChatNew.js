@@ -7,14 +7,17 @@ import Search from './mainChatLeft/Search';
 import TypingArea from './mainChatRight/TypingArea';
 import messages from "./dataBase/Chats";
 import MsgLoopCreator from './mainChatRight/MsgLoopCreator';
-import AudioRecorder from './audioRecorder/AudioRecorder';
+import defauldImg from './defaultImage.jpg';
+
 
 function MainChatNew(props) {
 
+    var emptyContact = { picture: defauldImg, nickname: "" };
+
     const [messageList, setMessageList] = useState(messages.find(({ user }) => (props.user.username === user)).usersChats);
     const [contactList, setContactList] = useState(contacts.find(({ name }) => (props.user.username === name)).cont);
-    const [currentContact, setCurrrentContact] = useState(contactList[0]);
-    const [currentChat, setCurrrentChat] = useState(messageList.find(({ nickname }) => (currentContact.nickname === nickname)).chats);
+    const [currentContact, setCurrrentContact] = useState(emptyContact);
+    const [currentChat, setCurrrentChat] = useState([{ type: "text", sentBy: "sentByOther", content: "", currTime: "" }]);
 
     //when called, only reload the messages in the chat
     const refreshMsgList = function () {
@@ -35,7 +38,7 @@ function MainChatNew(props) {
     }
 
 
-    var rightSide = (currentContact == contacts[0].cont[0]) ?
+    var rightSide = (currentContact == emptyContact) ?
         <div className="rightSide" />
         :
         (

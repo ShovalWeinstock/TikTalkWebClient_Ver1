@@ -6,10 +6,6 @@ const messages = [
    {
       user: "shoval", usersChats: [
          {
-            name: "", chats: []
-         },
-
-         {
             nickname: "grandma", chats: [{ type: "image", sentBy: "sentByOther", content: mondayMorning, currTime: "2022-4-11 | 19:18" },
             { type: "video", sentBy: "sentByOther", content: shabbatShalom, currTime: "2022-4-15 | 16:18" }
             ]
@@ -41,10 +37,6 @@ const messages = [
    },
    {
       user: "itamar", usersChats: [
-         {
-            name: "", chats: []
-         },
-
          {
             nickname: "grandma", chats: [{ type: "image", sentBy: "sentByOther", content: mondayMorning, currTime: "2022-4-11 | 19:18" },
             { type: "video", sentBy: "sentByOther", content: shabbatShalom, currTime: "2022-4-15 | 16:18" }
