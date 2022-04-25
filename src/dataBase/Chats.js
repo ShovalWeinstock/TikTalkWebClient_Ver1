@@ -1,5 +1,6 @@
 import mondayMorning from '../mondayMorning.jpeg'
 import shabbatShalom from '../shabbatShalom.mp4'
+import dishes from '../dishes.jpg'
 
 //list of messages for each user
 const messages = [
@@ -12,8 +13,19 @@ const messages = [
          },
 
          {
+            nickname: "roomie", chats: [{ type: "image", sentBy: "sentByOther", content: {dishes}, currTime: "2022-4-16 | 19:18" },
+            { type: "text", sentBy: "sentByOther", content: "clean it up", currTime: "2022-4-16 | 19:18" }
+            ]
+         },
+
+         {
+            nickname: "dude", chats: [{ type: "text", sentBy: "sentByOther", content: "She doesn't even go here", currTime: "2022-4-16 | 19:18" }
+            ]
+         },
+
+         {
             nickname: "Gili", chats: [{ type: "text", sentBy: "sentByOther", content: "Hi", currTime: "2022-4-16 | 19:18" },
-            { type: "text", sentBy: "sentByOther", content: "Whats up?", currTime: "2022-4-16 | 19:18" }
+            { type: "text", sentBy: "sentByOther", content: "How are you?", currTime: "2022-4-16 | 19:18" }
             ]
          },
 
@@ -21,20 +33,10 @@ const messages = [
             nickname: "Shir", chats: [{ type: "text", sentBy: "sentByOther", content: "Hi", currTime: "2022-4-16 | 19:18" },
             { type: "text", sentBy: "sentByOther", content: "Whats up?", currTime: "2022-4-16 | 19:18" }
             ]
-         },
-
-         {
-            nickname: "Maya", chats: [{ type: "text", sentBy: "sentByOther", content: "Hi", currTime: "2022-4-16 | 19:18" },
-            { type: "text", sentBy: "sentByOther", content: "Whats up?", currTime: "2022-4-16 | 19:18" }
-            ]
-         },
-
-         {
-            nickname: "Dan", chats: [{ type: "text", sentBy: "sentByOther", content: "Hey", currTime: "2022-4-16 | 19:18" },
-            { type: "text", sentBy: "sentByOther", content: "How are you?", currTime: "2022-4-16 | 19:18" }
-            ]
-         }]
+         }
+      ]
    },
+
    {
       user: "itamar", usersChats: [
          {
@@ -44,8 +46,19 @@ const messages = [
          },
 
          {
-            nickname: "Simi", chats: [{ type: "text", sentBy: "sentByOther", content: "Hi", currTime: "2022-4-16 | 19:18" },
-            { type: "text", sentBy: "sentByOther", content: "Whats up?", currTime: "2022-4-16 | 19:18" }
+            nickname: "roomie", chats: [{ type: "image", sentBy: "sentByOther", content: {dishes}, currTime: "2022-4-16 | 19:18" },
+            { type: "text", sentBy: "sentByOther", content: "clean it up", currTime: "2022-4-16 | 19:18" }
+            ]
+         },
+
+         {
+            nickname: "dude", chats: [{ type: "text", sentBy: "sentByOther", content: "She doesn't even go here", currTime: "2022-4-16 | 19:18" }
+            ]
+         },
+
+         {
+            nickname: "Gili", chats: [{ type: "text", sentBy: "sentByOther", content: "Hi", currTime: "2022-4-16 | 19:18" },
+            { type: "text", sentBy: "sentByOther", content: "How are you?", currTime: "2022-4-16 | 19:18" }
             ]
          },
 
@@ -53,19 +66,8 @@ const messages = [
             nickname: "Shir", chats: [{ type: "text", sentBy: "sentByOther", content: "Hi", currTime: "2022-4-16 | 19:18" },
             { type: "text", sentBy: "sentByOther", content: "Whats up?", currTime: "2022-4-16 | 19:18" }
             ]
-         },
-
-         {
-            nickname: "Maya", chats: [{ type: "text", sentBy: "sentByOther", content: "Hi", currTime: "2022-4-16 | 19:18" },
-            { type: "text", sentBy: "sentByOther", content: "Whats up?", currTime: "2022-4-16 | 19:18" }
-            ]
-         },
-
-         {
-            nickname: "Dan", chats: [{ type: "text", sentBy: "sentByOther", content: "Hey", currTime: "2022-4-16 | 19:18" },
-            { type: "text", sentBy: "sentByOther", content: "How are you?", currTime: "2022-4-16 | 19:18" }
-            ]
-         }]
+         }
+      ]
    }
 
 

@@ -3,7 +3,6 @@ import Login from './login/Login';
 import MainChat from './MainChat';
 import { useState } from 'react';
 
-
 function App() {
     
     const [isRegistered, setIsRegistered] = useState(true);
