@@ -1,9 +1,8 @@
 import { useState } from "react";
-import contacts from "../dataBase/Contacts";
 import users from "../dataBase/users"
 import messages from "../dataBase/Chats";
 
-function AddContact({ refreshList, refreshChatList }) {
+function AddContact({ refreshList, refreshChatList, loggedInUser }) {
 
   const [username, setUsername] = useState('');
 
@@ -23,10 +22,11 @@ function AddContact({ refreshList, refreshChatList }) {
       if (users[i].username == username) {
         found = true;
         var newContact = { picture: users[i].profilePic, nickname: users[i].nickname };
-        contacts.push(newContact);
+        // contacts.push(newContact);
         var placeholderChat = [{ type: "text", sentBy: "sentByOther", content: "", currTime: "" }];
-        messages.push({nickname: users[i].nickname, chats: placeholderChat });
-        refreshList();
+        (messages.find(({ username }) => (loggedInUser === username)).userChats).push({nickname: users[i].nickname, chats: placeholderChat });
+        // messages.push({nickname: users[i].nickname, chats: placeholderChat });
+        refreshList(newContact);
         window.$('#staticBackdrop').modal('hide')
         break;
       }

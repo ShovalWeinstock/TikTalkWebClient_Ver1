@@ -1,4 +1,5 @@
 import users from "../dataBase/users"
+import messages from "../dataBase/Chats";
 
 const isValidPassword = (password) => {
     const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
@@ -57,8 +58,9 @@ export const register = (username, nickName, password, confirmation, profilePic)
             nickName = username;
         }
         // addUser(username, nickName, password, profilePic);
-        const newUser = { username: username, nickName: nickName, password: password, profilePic: profilePic };
+        const newUser = { username: username, nickName: nickName, password: password, profilePic: profilePic, contacts: [] };
         users.push(newUser);
+        messages.push({ username: username, userChats: [] });
         //enter the chats screen (until it will be ready - enters login screen)
         return newUser
     }

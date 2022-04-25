@@ -2,10 +2,7 @@ import mondayMorning from '../mondayMorning.jpeg'
 import shabbatShalom from '../shabbatShalom.mp4'
 
 
-const messages = [
-   {
-      name: "", chats: []
-   },
+const hardCodedMsg = [
 
    {
       nickname: "grandma", chats: [{ type: "image", sentBy: "sentByOther", content: mondayMorning, currTime: "2022-4-11 | 19:18" },
@@ -36,6 +33,20 @@ const messages = [
       { type: "text", sentBy: "sentByOther", content: "How are you?", currTime: "2022-4-16 | 19:18" }
       ]
    }]
+
+
+const messages = [
+   {
+      username: "shoval", userChats: hardCodedMsg
+   },
+
+
+   {
+      username: "itamar", userChats: hardCodedMsg
+   }
+]
+
+
 
 
 export default messages;

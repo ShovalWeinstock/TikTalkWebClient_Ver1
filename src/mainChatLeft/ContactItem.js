@@ -30,5 +30,6 @@ function ContactItem({ picture, nickname, onclick, lastChat }) {
             </div>
         </div>
     )
+    debugger
 }
 export default ContactItem;
