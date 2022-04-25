@@ -2,8 +2,6 @@ import { useState } from "react";
 
 function RecordPopup({ trigger, type, setTrigger, addMsg }) {
 
-    const [startOrStop, setStartOrStop] = useState('start');
-
     var audioRecorder = {
 
         /** Stores the recorded audio as Blob objects of audio data as the recording continues*/
@@ -130,17 +128,6 @@ function RecordPopup({ trigger, type, setTrigger, addMsg }) {
             setTrigger(false);
     }
 
-    const handleClick = () => {
-        if (startOrStop == 'start') {
-            startRecording();
-            setStartOrStop('stop');
-        }
-        else {
-            stopRecording();
-            setStartOrStop('start');
-        }
-    }
-
     if (trigger) {
         return (
             <div className="popup">
@@ -155,10 +142,8 @@ function RecordPopup({ trigger, type, setTrigger, addMsg }) {
                                 <form>
                                     <div className="mb-3">
                                         <div className="center">
-                                            {/*<button id="recordBtn" type="button" className="btn btn-success" onClick={startRecording}>Record</button>*/}
-                                            {/*<button id="recordBtn" type="button" className="btn btn-primary" onClick={stopRecording}>Stop</button>*/}
-                                            <button id="recordBtn" type="button" className="btn btn-success" onClick={handleClick}>{startOrStop}</button>
-
+                                            <button id="recordBtn" type="button" className="btn btn-success" onClick={startRecording}>Record</button>
+                                            <button id="recordBtn" type="button" className="btn btn-primary" onClick={stopRecording}>Stop</button>
                                         </div>
                                     </div>
                                 </form>
