@@ -1,13 +1,16 @@
+//represent a contact in the UI contact list
 function ContactItem({ picture, nickname, onclick, lastChat }) {
 
-
+    // return the message type or text
     var message = (lastChat.type == "text"? lastChat.content : lastChat.type);
+    //if the msg is too long show a shorten verion in the contact preview
     var msgShortnen = function(msg){
         if (message.length > 20){
             msg = msg.slice(0,19) + " ...";
         }
         return msg;
     }
+    //send the parmas to the main chat for updatingthe preview of the contact
     const handleClick = function () {
         onclick({picture: picture, nickname: nickname});
     }

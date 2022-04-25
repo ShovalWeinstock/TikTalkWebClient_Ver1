@@ -1,6 +1,6 @@
 import Registration from './register/Registration';
 import Login from './login/Login';
-import MainChatNew from './MainChatNew';
+import MainChat from './MainChat';
 import { useState } from 'react';
 
 
@@ -25,7 +25,7 @@ function App() {
             return <Login changeRegState={changeRegState} changeLoggedInUser={changeLoggedInUser} />
         }
         else {
-            return <MainChatNew user={loggedInUser}/>
+            return <MainChat user={loggedInUser}/>
         }
     }
 

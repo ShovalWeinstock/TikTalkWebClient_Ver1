@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./UploadPopup.css";
 
+// pop up window to add attachments
 function UploadPopup({ trigger, type, setTrigger, addMsg }) {
 
     const [attachment, setAttachment] = useState('');
