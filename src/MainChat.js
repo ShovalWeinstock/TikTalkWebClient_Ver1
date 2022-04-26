@@ -30,9 +30,9 @@ function MainChat(props) {
     }
 
     // refresh the contacts list of the loggedIn user
-    const refreshContactList = function (newUser) {
-        if (newUser != null) {
-            (props.user.contacts).push(newUser);
+    const refreshContactList = function (newContact) {        
+        if ( (newContact != null) ) {
+            (props.user.contacts).push(newContact);
         }
         setContactList(props.user.contacts);
     }
@@ -77,7 +77,7 @@ function MainChat(props) {
                         <img src={props.user.profilePic} className="cover"></img>
                     </div>
                     <h6>{props.user.nickname}</h6>
-                    <AddContact refreshList={refreshContactList} refreshChatList={refreshMsgList} loggedInUser={props.user.username} />
+                    <AddContact refreshList={refreshContactList} refreshChatList={refreshMsgList} loggedInUser={props.user} />
                 </div>
 
                 {/*Search Chat*/}

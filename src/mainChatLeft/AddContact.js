@@ -16,7 +16,28 @@ function AddContact({ refreshList, refreshChatList, loggedInUser }) {
     setUsername("")
   }
 
+
+  const contactExists = function (contact) {
+    var contactExist = false;
+    var contacts = loggedInUser.contacts;
+    const contactNum = contacts.length;
+    var i;
+    for (i = 0; i < contactNum; i++) {
+        if (contacts[i].nickname == contact.nickname  && contacts[i].picture == contact.picture) {
+            contactExist = true;
+            break;
+        }
+    }
+    return contactExist;
+}
+
+
   const addCont = () => {
+    // when trying to add a chat with yourself
+    if (username === loggedInUser.username) {
+      document.getElementById("addContactError").innerHTML = "Can't chat with yourself";
+      return;
+    }
     // if the user exists, add it to the contacts list
     var found = false;
     const usersNum = users.length;
@@ -25,16 +46,23 @@ function AddContact({ refreshList, refreshChatList, loggedInUser }) {
       if (users[i].username == username) {
         found = true;
         var newContact = { picture: users[i].profilePic, nickname: users[i].nickname };
+        
+        // if the contact aleady exists
+        if(contactExists(newContact)) {
+          document.getElementById("addContactError").innerHTML = "Contact Exists";
+          return;
+        }
+
         // empty message, for the user item at left side of the mainChat screen
         var placeholderChat = [{ type: "text", sentBy: "sentByOther", content: "", currTime: "" }];
-        (messages.find(({ username }) => (loggedInUser === username)).userChats).push({nickname: users[i].nickname, chats: placeholderChat });
+        (messages.find(({ username }) => (loggedInUser.username === username)).userChats).push({nickname: users[i].nickname, chats: placeholderChat });
         // resfresh the contacts list at the mainChat screen, so it will include the new contact
         refreshList(newContact);
         window.$('#staticBackdrop').modal('hide')
+        refreshChatList();
         break;
       }
     }
-    refreshChatList();
     // if the user doesn't exist
     if (!found) {
       document.getElementById("addContactError").innerHTML = "Username doesn't exist";
