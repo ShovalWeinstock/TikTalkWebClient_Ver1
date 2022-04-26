@@ -11,14 +11,14 @@ function MsgLoopCreator({ msglis }) {
         }
     });
 
-    const dummy = useRef();
-
-    useEffect(() => { dummy.current.scrollIntoView({ behavior: 'smooth' }); });
+    // always scroll to the end of the chat
+    const endOfChat = useRef();
+    useEffect(() => { endOfChat.current.scrollIntoView({ behavior: 'smooth' }); });
 
     return (
         <div className="list-group rounded-0">
             {messageList}
-            <div ref={dummy}></div>
+            <div ref={endOfChat}></div>
         </div>
     )
 }

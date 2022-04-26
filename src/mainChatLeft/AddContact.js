@@ -4,8 +4,10 @@ import messages from "../dataBase/Chats";
 
 function AddContact({ refreshList, refreshChatList, loggedInUser }) {
 
+  // username of the new contact
   const [username, setUsername] = useState('');
 
+  // clear the input field
   const handleClick = (e) => {
     e.preventDefault();
     // Clear errors
@@ -15,6 +17,7 @@ function AddContact({ refreshList, refreshChatList, loggedInUser }) {
   }
 
   const addCont = () => {
+    // if the user exists, add it to the contacts list
     var found = false;
     const usersNum = users.length;
     var i;
@@ -22,16 +25,17 @@ function AddContact({ refreshList, refreshChatList, loggedInUser }) {
       if (users[i].username == username) {
         found = true;
         var newContact = { picture: users[i].profilePic, nickname: users[i].nickname };
-        // contacts.push(newContact);
+        // empty message, for the user item at left side of the mainChat screen
         var placeholderChat = [{ type: "text", sentBy: "sentByOther", content: "", currTime: "" }];
         (messages.find(({ username }) => (loggedInUser === username)).userChats).push({nickname: users[i].nickname, chats: placeholderChat });
-        // messages.push({nickname: users[i].nickname, chats: placeholderChat });
+        // resfresh the contacts list at the mainChat screen, so it will include the new contact
         refreshList(newContact);
         window.$('#staticBackdrop').modal('hide')
         break;
       }
     }
     refreshChatList();
+    // if the user doesn't exist
     if (!found) {
       document.getElementById("addContactError").innerHTML = "Username doesn't exist";
     }
@@ -60,6 +64,7 @@ function AddContact({ refreshList, refreshChatList, loggedInUser }) {
               <form>
                 <div className="mb-3">
                   <label htmlFor="recipient-name" className="col-form-label">Username:</label>
+                  {/*input bar*/}
                   <input type="text" className="form-control" id="recipient-name"
                     value={username} onChange={(e) => setUsername(e.target.value)}></input>
                   <p id="addContactError" className="errorMessege"></p>

@@ -1,6 +1,14 @@
 import users from "../dataBase/users"
 import messages from "../dataBase/Chats";
 
+/*
+password validation, accordind to the folllowing:
+ password must contain:
+    - At least 8 characters
+    - At least one lowercase
+    - At least one uppercase
+    - At least one number
+*/
 const isValidPassword = (password) => {
     const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
     if (regex.test(password)) {
@@ -9,6 +17,8 @@ const isValidPassword = (password) => {
     return false;
 }
 
+
+// check if username aleady exists
 export const usernameExists = (username) => {
     var usernameExists = false;
     const usersNum = users.length;

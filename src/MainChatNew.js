@@ -6,19 +6,15 @@ import Search from './mainChatLeft/Search';
 import TypingArea from './mainChatRight/TypingArea';
 import messages from "./dataBase/Chats";
 import MsgLoopCreator from './mainChatRight/MsgLoopCreator';
-import defauldImg from './defaultImage.jpg';
-
 
 function MainChatNew(props) {
-
-    var emptyContact = { picture: defauldImg, nickname: "" };
 
     // The chats of the loggedIn user
     const [messageList, setMessageList] = useState(messages.find(({ username }) => (props.user.username === username)).userChats);
     // The contacts of the loggedIn user
     const [contactList, setContactList] = useState(props.user.contacts);
-    // The viewd contacts
-    const [currentContact, setCurrrentContact] = useState(emptyContact);
+    // The viewd contact
+    const [currentContact, setCurrrentContact] = useState(null);
     // The chat with the viewd contact
     const [currentChat, setCurrrentChat] = useState([]);
 
@@ -48,11 +44,12 @@ function MainChatNew(props) {
     }
 
     // right side of the screen
-    var rightSide = (currentContact === emptyContact) ?
+    var rightSide = (!currentContact) ?
         <div className="rightSide" />
         :
         (
             <div className="rightSide">
+                {/*viewd contact's details*/} 
                 <div className='header'>
                     <div className='profilePicture'>
                         <img src={currentContact.picture} className="cover"></img>
@@ -65,7 +62,6 @@ function MainChatNew(props) {
                 </div>
                 {/*Input area*/}
                 <div className='chatInput'>
-                    {/* to activate the refreshing functions when sending a message */}
                     <TypingArea refreshChat={refreshMsgList} currChat={currentChat} refreshContactList={refreshContactList} />
                 </div>
             </div>
@@ -75,6 +71,7 @@ function MainChatNew(props) {
         <div className="container">
 
             <div className="leftSide">
+                {/*loggedIn user's details*/}
                 <div className='header'>
                     <div className='profilePicture'>
                         <img src={props.user.profilePic} className="cover"></img>

@@ -13,6 +13,7 @@ function MessageBody({ content, type }) {
             </video>
         )
     }
+    // audio message
     else if (type == "audio") {
         return (
         <audio controls>

@@ -142,6 +142,7 @@ function RecordPopup({ trigger, type, setTrigger, addMsg }) {
                                 <form>
                                     <div className="mb-3">
                                         <div className="center">
+                                            {/*start and stop buttons*/}
                                             <button id="recordBtn" type="button" className="btn btn-success" onClick={startRecording}>Record</button>
                                             <button id="recordBtn" type="button" className="btn btn-primary" onClick={stopRecording}>Stop</button>
                                         </div>

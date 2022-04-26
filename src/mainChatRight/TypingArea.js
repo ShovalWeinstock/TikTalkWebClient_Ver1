@@ -5,7 +5,9 @@ import RecordPopup from "./RecoredPopup"
 // bottom bar in the chat section. refreshChat arg will reload the chat
 function TypingArea({ refreshChat, currChat, refreshContactList }) {
 
+    // the message typed in the input bar
     const [currentMsg, setCurrentMsg] = useState('');
+    // state of the popups (hidden - false, or shown - true)
     const [uploadImgPopup, setUploadImgPopup] = useState(false);
     const [uploadVidPopup, setUploadVidPopup] = useState(false);
     const [recordPopup, setRecordPopup] = useState(false);
@@ -20,7 +22,8 @@ function TypingArea({ refreshChat, currChat, refreshContactList }) {
             currChat.push(newMgs);
             // reload the message in the chat again
             refreshChat();
-            refreshContactList();
+            // refresh the contacts list for the left side of the mainChat screen. (null=no new contact)
+            refreshContactList(null);
             setCurrentMsg("");
         }
     }

@@ -2,6 +2,8 @@ import { useRef } from 'react'
 
 function Search({ doSearch }) {
 
+    // search contact by the text typed in the input bar
+
     const searchBox = useRef(null);
 
     const search = function () {
