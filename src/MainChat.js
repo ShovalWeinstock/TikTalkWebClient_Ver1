@@ -1,4 +1,4 @@
-import './MainChatNew.css';
+import './MainChat.css';
 import AddContact from './mainChatLeft/AddContact';
 import { useState } from 'react'
 import ContactList from './mainChatLeft/ContactList';
