@@ -3,6 +3,7 @@ import "./UploadPopup.css";
 
 function UploadPopup({ trigger, type, setTrigger, addMsg }) {
 
+    // attachment to send
     const [attachment, setAttachment] = useState('');
 
     const uploadAttachment = (e) => {
@@ -10,9 +11,11 @@ function UploadPopup({ trigger, type, setTrigger, addMsg }) {
     }
 
     const sendAttachment = () => {
+        // if no attachment was uploaded
         if (attachment == '') {
             document.getElementById("attachmentError").innerHTML = "Please add attachment";
         }
+        // send the attachment
         else {
             addMsg(type, attachment);
             setTrigger(false);
@@ -31,6 +34,7 @@ function UploadPopup({ trigger, type, setTrigger, addMsg }) {
                             </div>
                             <div className="modal-body">
                                 <form>
+                                    {/*add attachment*/}
                                     <div className="mb-3">
                                         <input className="form-control" type="file" id="formFile" accept={(type) + "/*"} onChange={uploadAttachment} ></input>
                                         <p id="attachmentError" className="errorMessege"></p>
@@ -49,7 +53,3 @@ function UploadPopup({ trigger, type, setTrigger, addMsg }) {
     return ("");
 }
 export default UploadPopup;
-
-
-// <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={() => { setTrigger(false) }}>Close</button>
-

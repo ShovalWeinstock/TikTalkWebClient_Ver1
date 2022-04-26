@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 function RecordPopup({ trigger, type, setTrigger, addMsg }) {
 
     var audioRecorder = {
