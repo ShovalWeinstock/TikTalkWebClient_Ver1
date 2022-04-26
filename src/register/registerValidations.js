@@ -67,11 +67,9 @@ export const register = (username, nickName, password, confirmation, profilePic)
         if (nickName == "") {
             nickName = username;
         }
-        // addUser(username, nickName, password, profilePic);
-        const newUser = { username: username, nickName: nickName, password: password, profilePic: profilePic, contacts: [] };
+        const newUser = { username: username, nickname: nickName, password: password, profilePic: profilePic, contacts: [] };
         users.push(newUser);
         messages.push({ username: username, userChats: [] });
-        //enter the chats screen (until it will be ready - enters login screen)
         return newUser
     }
     return null
