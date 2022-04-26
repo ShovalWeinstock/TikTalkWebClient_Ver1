@@ -1,5 +1,5 @@
-project of
-Shoval Weinstock
+project of:
+Shoval Weinstock 209540731
 Itamar Shachen tov 207497769
 
 run with 'npm-start' in the project's directory
