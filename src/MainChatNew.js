@@ -76,7 +76,7 @@ function MainChatNew(props) {
                     <div className='profilePicture'>
                         <img src={props.user.profilePic} className="cover"></img>
                     </div>
-                    <h6>{props.user.username}</h6>
+                    <h6>{props.user.nickname}</h6>
                     <AddContact refreshList={refreshContactList} refreshChatList={refreshMsgList} loggedInUser={props.user.username} />
                 </div>
 
