@@ -1,28 +1,32 @@
-import MainChatNew from "../MainChatNew";
-import users from "../users&contacts/users"
+import users from "../dataBase/users"
 
-/*Validate the login input: Check that the username exists, and that the password is correct*/
-const isValidLoginInfo = (username, password) => {
-    var validInfo = false;
+const findUser = (username, password) => {
+    var user = null
     const usersNum = users.length;
     var i;
     for (i = 0; i < usersNum; i++) {
         if (users[i].username == username && users[i].password == password) {
-            validInfo = true;
+            user = users[i];
+            break;
         }
-        break;
     }
-    return validInfo;
+    return user;
 }
 
-/*Login to the main chat screen*/
+// if the user exists - return it. otherwise-return null
 export const login = (username, password) => {
-    if (username == '' || password == '' || !isValidLoginInfo(username, password)) {
+    // if the inpuft fields are empty
+    if (username == '' || password == '') {
+        document.getElementById("loginError").innerHTML = "Please fill all fileds";
+        return null;
+    }
+    // if the user doesn;t exist
+    var user = findUser(username, password);
+    if (user == null) {
         document.getElementById("loginError").innerHTML = "Username or Password are invalid";
+        return null;
     }
     else {
-        alert("logged in successfully");
-        // const navigate = useNavigate();
-        // navigate('/mainChat');
+        return user;
     }
 }

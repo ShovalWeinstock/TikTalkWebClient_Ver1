@@ -1,7 +1,14 @@
-import users from "../users&contacts/users"
-// import defauldImg from './defaultImage.jpg';
-// import { useNavigate } from 'react-router-dom';
+import users from "../dataBase/users"
+import messages from "../dataBase/Chats";
 
+/*
+password validation, accordind to the folllowing:
+ password must contain:
+    - At least 8 characters
+    - At least one lowercase
+    - At least one uppercase
+    - At least one number
+*/
 const isValidPassword = (password) => {
     const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
     if (regex.test(password)) {
@@ -10,6 +17,8 @@ const isValidPassword = (password) => {
     return false;
 }
 
+
+// check if username aleady exists
 export const usernameExists = (username) => {
     var usernameExists = false;
     const usersNum = users.length;
@@ -23,10 +32,6 @@ export const usernameExists = (username) => {
     return usernameExists;
 }
 
-// const addUser = (username, nickName, password, profilePic) => {
-//     const newUser = { username: username, nickName: nickName, password: password, profilePic: profilePic};
-//     users.push(newUser);
-// }
 
 export const register = (username, nickName, password, confirmation, profilePic) => {
     var validInfo = true;
@@ -59,13 +64,13 @@ export const register = (username, nickName, password, confirmation, profilePic)
     }
     // the info is valid. create the user:
     if (validInfo) {
-        alert("registration completed");
         if (nickName == "") {
             nickName = username;
         }
-        // addUser(username, nickName, password, profilePic);
-        const newUser = { username: username, nickName: nickName, password: password, profilePic: profilePic };
+        const newUser = { username: username, nickname: nickName, password: password, profilePic: profilePic, contacts: [] };
         users.push(newUser);
-        //enter the chats screen (until it will be ready - enters login screen) 
+        messages.push({ username: username, userChats: [] });
+        return newUser
     }
+    return null
 }

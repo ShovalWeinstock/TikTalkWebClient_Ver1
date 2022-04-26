@@ -1,16 +1,13 @@
 import { useState } from "react";
-import chats from "../messages/Chats";
-import { usernameExists } from "../register/registerValidations"
-import contacts from "../users&contacts/Contacts";
-import users from "../users&contacts/users"
-import messages from "../messages/Chats";
+import users from "../dataBase/users"
+import messages from "../dataBase/Chats";
 
-//import contactList from "../contactList/ContactList"
+function AddContact({ refreshList, refreshChatList, loggedInUser }) {
 
-function AddContact({ refreshList }) {
-
+  // username of the new contact
   const [username, setUsername] = useState('');
 
+  // clear the input field
   const handleClick = (e) => {
     e.preventDefault();
     // Clear errors
@@ -19,35 +16,54 @@ function AddContact({ refreshList }) {
     setUsername("")
   }
 
-  // // Add a new contact
-  // const addCont = (e) => {
-  //   // If the user doesn't exsit
-  //   if (!usernameExists(username)) {
-  //     document.getElementById("addContactError").innerHTML = "Username doesn't exist";
-  //   }
-  //   else {
-  //     // var newContact = { name: username, prevText: "", date: "24 dec" }
-  //     var newContact = {name: username, prevMsg: "", date: "" };
-  //     contacts.push(newContact);
-  //     refreshList();
-  //   }
 
-  // }
+  const contactExists = function (contact) {
+    var contactExist = false;
+    var contacts = loggedInUser.contacts;
+    const contactNum = contacts.length;
+    var i;
+    for (i = 0; i < contactNum; i++) {
+        if (contacts[i].nickname == contact.nickname  && contacts[i].picture == contact.picture) {
+            contactExist = true;
+            break;
+        }
+    }
+    return contactExist;
+}
+
 
   const addCont = () => {
+    // when trying to add a chat with yourself
+    if (username === loggedInUser.username) {
+      document.getElementById("addContactError").innerHTML = "Can't chat with yourself";
+      return;
+    }
+    // if the user exists, add it to the contacts list
     var found = false;
     const usersNum = users.length;
     var i;
     for (i = 0; i < usersNum; i++) {
       if (users[i].username == username) {
         found = true;
-        var newContact = { picture: users[i].profilePic, name: username, prevMsg: "", date: "" };
-        contacts.push(newContact);
-        messages.push({name: username, chats: []});
-        refreshList();
+        var newContact = { picture: users[i].profilePic, nickname: users[i].nickname };
+        
+        // if the contact aleady exists
+        if(contactExists(newContact)) {
+          document.getElementById("addContactError").innerHTML = "Contact Exists";
+          return;
+        }
+
+        // empty message, for the user item at left side of the mainChat screen
+        var placeholderChat = [{ type: "text", sentBy: "sentByOther", content: "", currTime: "" }];
+        (messages.find(({ username }) => (loggedInUser.username === username)).userChats).push({nickname: users[i].nickname, chats: placeholderChat });
+        // resfresh the contacts list at the mainChat screen, so it will include the new contact
+        refreshList(newContact);
+        window.$('#staticBackdrop').modal('hide')
+        refreshChatList();
         break;
       }
     }
+    // if the user doesn't exist
     if (!found) {
       document.getElementById("addContactError").innerHTML = "Username doesn't exist";
     }
@@ -76,6 +92,7 @@ function AddContact({ refreshList }) {
               <form>
                 <div className="mb-3">
                   <label htmlFor="recipient-name" className="col-form-label">Username:</label>
+                  {/*input bar*/}
                   <input type="text" className="form-control" id="recipient-name"
                     value={username} onChange={(e) => setUsername(e.target.value)}></input>
                   <p id="addContactError" className="errorMessege"></p>
@@ -94,4 +111,5 @@ function AddContact({ refreshList }) {
   )
 }
 export default AddContact;
+
 

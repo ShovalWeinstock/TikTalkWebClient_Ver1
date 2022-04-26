@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -5,14 +6,6 @@
     font-family: Roboto, Verdana, sans-serif !important;
     color: #595959;
 }
-
-/* body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: #617a74;
-} */
 
 .container {
     margin-top: 20px;
@@ -35,7 +28,6 @@
     flex: 30%;
     background: #DEDEDE;
     border-right: #a8ccc3;
-    /* border-radius: 5px; */
 }
 
 .rightSide {
@@ -48,7 +40,6 @@
     position: relative;
     width: 100%;
     height: 60px;
-    /* background: #dce8d2; */
     background: #F5F5F5;
     display: flex;
     align-items: center;
@@ -67,8 +58,6 @@
 
 .cover {
     position: absolute;
-    /* top: 0;
-    left: 0; */
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -100,14 +89,12 @@ input {
     position: relative;
     overflow-y: auto;
     height: calc(100% - 50px - 60px);
-    /*100% - searchChat height - header height*/
 }
 
 .contact {
     height: 90px;
     cursor: pointer;
     align-items: center;
-    /* border-bottom: 1px solid #aaa; */
     border-bottom: 1px solid rgb(210, 210, 210);
     padding: 10px 15px;
     display: flex;
@@ -139,11 +126,12 @@ h6 {
 }
 
 .time {
-    size: 0.75em;
+    font-size: 0.65em;
     color: #aaa;
 }
 
 .lastMessege {
+    margin-top: 7px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -174,9 +162,7 @@ h6 {
     height: 60px;
     padding: 15px;
     display: flex;
-    /* justify-content: space-between; */
     bottom: 5px;
-    /* background: #F5F5F5; */
 }
 
 #chatTypingArea {
@@ -208,7 +194,6 @@ h6 {
 .btn-success,
 .btn-success:active,
 .btn-success:visited {
-    /* background-color: #445551 !important; */
     background: #93af9c !important;
     border-color: #93af9c !important;
 }
@@ -231,6 +216,8 @@ h6 {
 }
 
 .sentByMe {
+    padding-top: 10px;
+    margin-right: auto;
     margin-left: 10px;
 }
 
@@ -240,7 +227,6 @@ h6 {
     position: relative;
 	max-width: 500px;
 	padding: 10px;
-	/* font-size: 1.25em; */
 	border-radius: 10px;
 }
 
@@ -250,4 +236,17 @@ h6 {
 
 .sentByMe .msgBody{
     background: #dce8d2;
+}
+
+#imgMsg {
+    height: 300px;
+    width: 300px;
+}
+
+#addContact:focus, input:focus, input.form-control:focus {
+    outline:none !important;
+    outline-width: 0 !important;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
 }
