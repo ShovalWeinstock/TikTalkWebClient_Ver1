@@ -1,6 +1,7 @@
 import mondayMorning from '../mondayMorning.jpeg'
 import shabbatShalom from '../shabbatShalom.mp4'
 import dishes from '../dishes.jpg';
+import indian from '../indian.mpeg';
 
 
 const hardCodedMsg = [
@@ -23,7 +24,8 @@ const hardCodedMsg = [
 
       {
          nickname: "Gili", chats: [{ type: "text", sentBy: "sentByOther", content: "Hi", currTime: "2022-4-16 | 19:18" },
-         { type: "text", sentBy: "sentByOther", content: "How are you?", currTime: "2022-4-16 | 19:18" }
+         { type: "text", sentBy: "sentByOther", content: "How are you?", currTime: "2022-4-16 | 19:18" },
+         { type: "audio", sentBy: "sentByOther", content: indian, currTime: "2022-4-16 | 19:18" }
          ]
       },
 
