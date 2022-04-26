@@ -7,7 +7,7 @@ import TypingArea from './mainChatRight/TypingArea';
 import messages from "./dataBase/Chats";
 import MsgLoopCreator from './mainChatRight/MsgLoopCreator';
 
-function MainChatNew(props) {
+function MainChat(props) {
 
     // The chats of the loggedIn user
     const [messageList, setMessageList] = useState(messages.find(({ username }) => (props.user.username === username)).userChats);
@@ -96,4 +96,4 @@ function MainChatNew(props) {
     );
 }
 
-export default MainChatNew;
+export default MainChat;

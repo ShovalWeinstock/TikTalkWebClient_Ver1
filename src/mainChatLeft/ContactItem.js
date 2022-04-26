@@ -7,6 +7,14 @@ function ContactItem({ picture, nickname, onclick, lastChat }) {
         onclick({picture: picture, nickname: nickname});
     }
 
+    //if the msg is too long show a shorten verion in the contact preview
+    var msgShortnen = function(msg){
+        if (message.length > 20){
+            msg = msg.slice(0,19) + " ...";
+        }
+        return msg;
+    }
+
     return (
         <div className="contact" onClick={handleClick}>
 
@@ -25,7 +33,7 @@ function ContactItem({ picture, nickname, onclick, lastChat }) {
 
                 <div className="lastMessage">
                     {/* The last msg in the chat */}
-                    <p className="lastMessege">{message}</p>
+                    <p className="lastMessege">{msgShortnen(message)}</p>
                 </div>
 
             </div>
