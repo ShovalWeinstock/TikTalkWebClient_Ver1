@@ -1,8 +1,8 @@
 project of:
 
-Shoval Weinstock 209540731
+Shoval Weinstock
 
-Itamar Shachen tov 207497769
+Itamar Shachen tov
 
 you are able to log in with 2 users:
 
